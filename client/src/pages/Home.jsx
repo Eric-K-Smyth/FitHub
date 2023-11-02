@@ -1,34 +1,40 @@
+import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
-
-import ThoughtList from '../components/ThoughtList';
-import ThoughtForm from '../components/ThoughtForm';
-
+import homePageImage from '../../dist/assets/images/training-pic.jpg';
 import { QUERY_THOUGHTS } from '../utils/queries';
+import InfoBlocks from '../components/InfoBlocks/index';
+import PricingTable from '../components/PricingTable/index';
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_THOUGHTS);
-  const thoughts = data?.thoughts || [];
+
+  const [showPricingTable, setShowPricingTable] = useState(false);
+
+  const handlePricingTableToggle = () => {
+    setShowPricingTable(!showPricingTable);
+  };
 
   return (
-    <main>
-      <div className="flex-row justify-center">
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: '1px dotted #1a1a1a' }}
-        >
-          <ThoughtForm />
-        </div>
-        <div className="col-12 col-md-8 mb-3">
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <ThoughtList
-              thoughts={thoughts}
-              title="Some Feed for Thought(s)..."
-            />
-          )}
-        </div>
+    <main className="main-container">
+      <section className="info-section p-5 mb-3">
+        <p className='p-5'>We tailor routines to align with your fitness goals. Explore advanced personalization with FitHub Premium.</p>
+        
+        <button onClick={handlePricingTableToggle} className="btn btn-outline-black">
+        {showPricingTable ? "Hide Premium Features" : "Learn more about Premium features"}
+        </button>
+        
+        {showPricingTable && <PricingTable />}
+        
+      </section>
+      <div 
+        className="background-image-div" 
+        style={{ backgroundImage: `url(${homePageImage})`, 
+          backgroundSize: 'cover' 
+        }}
+      >
+        <p className="overlay-text">Build a custom plan that works for you.</p>
       </div>
+      <InfoBlocks />
     </main>
   );
 };
