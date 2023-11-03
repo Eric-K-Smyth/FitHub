@@ -1,18 +1,22 @@
 const db = require('../config/connection');
-const { User, Thought } = require('../models');
+const { User, Diets, Routines, Workouts } = require('../models');
 const userSeeds = require('./userSeeds.json');
-const thoughtSeeds = require('./thoughtSeeds.json');
+const dietarySeeds = require('./dietarySeeds.json');
+const routineSeeds = require('./routineSeeds.json');
+const workoutSeeds = require('./workoutSeeds.json');
 const cleanDB = require('./cleanDB');
 
 db.once('open', async () => {
   try {
-    await cleanDB('Thought', 'thoughts');
+    await cleanDB('Diets', 'diets');
     await cleanDB('User', 'users');
+    await cleanDB('Routines', 'routines');
+    await cleanDB('Workouts', 'workouts');
 
     await User.create(userSeeds);
 
-    for (let i = 0; i < thoughtSeeds.length; i++) {
-      const { _id, thoughtAuthor } = await Thought.create(thoughtSeeds[i]);
+    for (let i = 0; i < workoutSeeds.length; i++) {
+      const { _id } = await Workouts.create(workoutSeeds[i]);
       const user = await User.findOneAndUpdate(
         { username: thoughtAuthor },
         {
