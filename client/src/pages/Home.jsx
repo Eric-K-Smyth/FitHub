@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import homePageImage from '../../dist/assets/images/training-pic.jpg';
+import homePageImage from '../../public/assets/images/training.jpg';
 import { QUERY_THOUGHTS } from '../utils/queries';
 import InfoBlocks from '../components/InfoBlocks/index';
 import PricingTable from '../components/PricingTable/index';
