@@ -1,29 +1,44 @@
-const { User, Thought } = require('../models');
-const { signToken, AuthenticationError } = require('../utils/auth');
+const { User, Workouts, Routines, Diets } = require("../models");
+const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('thoughts');
+      return User.find()
+        .populate("dietary")
+        .populate({
+          path: "routines",
+          populate: {
+            path: "workouts",
+          },
+        });
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('thoughts');
-    },
-    thoughts: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Thought.find(params).sort({ createdAt: -1 });
-    },
-    thought: async (parent, { thoughtId }) => {
-      return Thought.findOne({ _id: thoughtId });
+      return User.findOne({ username }).populate(["dietary", "routines"]);
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('thoughts');
+        return User.findOne({ _id: context.user._id }).populate([
+          "dietary",
+          "routines",
+        ]);
       }
-      throw AuthenticationError;
+      throw AuthenticationError("You need to be logged in!");
     },
+    // User: {
+    //   dietary: async (parent) => {
+    //     return await Diets.find({ _id: { $in: parent.dietary } });
+    //   },
+    //   routines: async (parent) => {
+    //     return await Routines.find({ _id: { $in: parent.routines } }).populate('workouts');
+    //   }
+    // },
+    // Routines: {
+    //   workouts: async (parent) => {
+    //     return Workouts.find({ _id: { $in: parent.workouts } });
+    //   }
+    // }
   },
-
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
@@ -36,82 +51,13 @@ const resolvers = {
       if (!user) {
         throw AuthenticationError;
       }
-
       const correctPw = await user.isCorrectPassword(password);
-
       if (!correctPw) {
         throw AuthenticationError;
       }
-
       const token = signToken(user);
 
       return { token, user };
-    },
-    addThought: async (parent, { thoughtText }, context) => {
-      if (context.user) {
-        const thought = await Thought.create({
-          thoughtText,
-          thoughtAuthor: context.user.username,
-        });
-
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { thoughts: thought._id } }
-        );
-
-        return thought;
-      }
-      throw AuthenticationError;
-    },
-    addComment: async (parent, { thoughtId, commentText }, context) => {
-      if (context.user) {
-        return Thought.findOneAndUpdate(
-          { _id: thoughtId },
-          {
-            $addToSet: {
-              comments: { commentText, commentAuthor: context.user.username },
-            },
-          },
-          {
-            new: true,
-            runValidators: true,
-          }
-        );
-      }
-      throw AuthenticationError;
-    },
-    removeThought: async (parent, { thoughtId }, context) => {
-      if (context.user) {
-        const thought = await Thought.findOneAndDelete({
-          _id: thoughtId,
-          thoughtAuthor: context.user.username,
-        });
-
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { thoughts: thought._id } }
-        );
-
-        return thought;
-      }
-      throw AuthenticationError;
-    },
-    removeComment: async (parent, { thoughtId, commentId }, context) => {
-      if (context.user) {
-        return Thought.findOneAndUpdate(
-          { _id: thoughtId },
-          {
-            $pull: {
-              comments: {
-                _id: commentId,
-                commentAuthor: context.user.username,
-              },
-            },
-          },
-          { new: true }
-        );
-      }
-      throw AuthenticationError;
     },
   },
 };
