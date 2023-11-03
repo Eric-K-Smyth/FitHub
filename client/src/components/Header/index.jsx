@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import headerBg from '../../../dist/assets/images/fithub-home-pic.jpg';
+import headerBg from '../../../public/assets/images/fithub-home-pic.jpg';
 import Auth from '../../utils/auth';
 
 const Header = () => {
