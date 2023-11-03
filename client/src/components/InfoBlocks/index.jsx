@@ -1,6 +1,6 @@
 import React from 'react';
 import './infoblocks.css';
-import mealPic from '../../../public/assets/images/fithub-food-pic.jpg';
+import mealPic from '../../../src/assets/images/fithub-food-pic.jpg';
 
 const HoverBlocks = () => {
   return (
