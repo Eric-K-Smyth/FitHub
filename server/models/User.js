@@ -19,10 +19,36 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  thoughts: [
+  height:{
+    type: INT,
+    required: true,
+  },
+  payMember:{
+    type: Boolean,
+    required: true,
+  },
+  bw_start:{
+    type: INT,
+    required: true,
+  },
+  bw_current:{
+    type: INT,
+    required: true,
+  },
+  bw_goal:{
+    type: INT,
+    required: true,
+  },
+  dietary: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Thought',
+      ref: 'Diets',
+    },
+  ],
+  routines: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Routines',
     },
   ],
 });
