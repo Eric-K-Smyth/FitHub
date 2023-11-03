@@ -1,0 +1,26 @@
+[
+  {
+    "name": "pushup",
+    "category": "cardio",
+    "instructions": "up and down",
+    "image": "url-link.com",
+    "sets": 4,
+    "reps": 3
+  },
+  {
+    "name": "running",
+    "category": "endurance",
+    "instructions": "run forest run",
+    "image": "url-link.com",
+    "sets": 1,
+    "reps": 1
+  },
+  {
+    "name": "yoga strech",
+    "category": "meditation",
+    "instructions": "chill and relax",
+    "image": "url-link.com",
+    "sets": 100,
+    "reps": 1
+  }
+]

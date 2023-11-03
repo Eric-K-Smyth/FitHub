@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
 const WorkoutSchema = new Schema({
   name: {
@@ -18,15 +18,15 @@ const WorkoutSchema = new Schema({
     required: true,
   },
   sets: {
-    type: NUMBERS,
+    type: Number,
     required: true,
   },
   reps: {
-    type: NUMBERS,
+    type: Number,
     required: true,
-  }
+  },
 });
 
-const Workouts = model('Workouts', WorkoutSchema);
+const Workouts = model("Workouts", WorkoutSchema);
 
 module.exports = Workouts;
