@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
+import { Link } from 'react-router-dom';
 import homePageImage from '../../src/assets/images/training-pic.jpg';
 import { QUERY_THOUGHTS } from '../utils/queries';
 import InfoBlocks from '../components/InfoBlocks/index';
@@ -34,6 +35,12 @@ const Home = () => {
       >
         <p className="overlay-text">Build a custom plan that works for you.</p>
       </div>
+      <section className="signup-section">
+        <p>Invest in Your Future Fitness Goals</p>
+          <Link to="/signup" className="btn btn-outline-black">
+          Sign Up Today!
+          </Link>
+      </section>
       <InfoBlocks />
     </main>
   );

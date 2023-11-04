@@ -1,18 +1,31 @@
 import React from 'react';
 import './infoblocks.css';
-import mealPic from '../../../src/assets/images/fithub-food-pic.jpg';
+import mealPic from '../../../src/assets/images/meals-pic.jpg';
+import runningPic from '../../../src/assets/images/running-pic.jpg';
+import signPic from '../../../src/assets/images/sign-pic.jpg';
+
 
 const HoverBlocks = () => {
   return (
     <section className="hover-blocks-section">
       <div className="block hover-shadow" style={{ backgroundImage: `url(${mealPic})` }}>
-        <div className="overlay-text">
-          <h2>Meal Suggestions</h2>
-          <p>We put together meal suggestions for you that help you to reach your fitness goals</p>
+        <h3 className="block-title">Meal Suggestions</h3>
+        <div className="block-caption">
+          Personalized meals tailored to your unique fitness goals and dietary needs.
         </div>
       </div>
-      <div className="block hover-shadow" style={{ backgroundImage: `url(${mealPic})` }}></div>
-      <div className="block hover-shadow" style={{ backgroundImage: `url(${mealPic})` }}></div>
+      <div className="block hover-shadow" style={{ backgroundImage: `url(${runningPic})` }}>
+      <h3 className="block-title">Progress Tracker</h3>
+        <div className="block-caption">
+          Visualize your progress and keep your workout streaks unbroken with our intuitive fitness tracker.
+        </div>
+      </div>
+      <div className="block hover-shadow" style={{ backgroundImage: `url(${signPic})` }}>
+      <h3 className="block-title">Daily Motivation</h3>
+        <div className="block-caption">
+          Discover daily curated quotes that propel you towards your goals, and start your day off right.
+        </div>
+      </div>
     </section>
   );
 }

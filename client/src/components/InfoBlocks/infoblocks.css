@@ -2,23 +2,77 @@
   display: flex;
   justify-content: space-between;
   padding-top: 50px;
-  padding-bottom: 50px; 
+  padding-bottom: 50px;
   width: 100vw;
-  height: 500px;
+  min-height: 500px;
 }
 
 .block {
-  width: 33.33%; 
-  height: 300px; 
-  background-color: #f2f2f2; 
-  transition: box-shadow 0.3s ease-in-out;
+  width: 33.33%;
+  height: 600px;
+  background-color: #f2f2f2;
+  transition: box-shadow 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   position: relative;
   background-size: cover;
   background-position: center;
+  margin-bottom: 10px;
+  overflow: hidden; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.block:hover::before {
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .hover-shadow:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.block-title {
+  position: absolute;
+  top: 50%; 
+  text-align: center;
+  transition: top 0.3s ease-in-out; 
+  z-index: 3;
+  opacity: 1;
+  color: white;
+}
+
+.block-caption {
+  position: absolute;
+  bottom: -100%; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%; 
+  color: white;
+  font-weight: 450;
+  padding: 40px;
+  text-align: center;
+  z-index: 2;
+  opacity: 0;
+  transition: all 0.3s ease-in-out; 
+}
+
+.block:hover .block-caption {
+  bottom: 30%; 
+  opacity: 1; 
+}
+
+.block:hover .block-title {
+  top: 40%; 
 }
 
 
