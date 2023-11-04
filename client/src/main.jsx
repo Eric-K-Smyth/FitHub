@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import SingleThought from './pages/SingleThought';
 import Profile from './pages/Profile';
 import Error from './pages/Error';
+import Questionnaire from './pages/Questionnaire';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,9 @@ const router = createBrowserRouter([
         path: '/signup',
         element: <Signup />
       }, {
+        path: '/questionnaire', 
+        element: <Questionnaire />
+      },{
         path: '/me',
         element: <Profile />
       }, {

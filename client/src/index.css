@@ -1806,10 +1806,29 @@ label form [type='radio'] {
   color: #000000; 
   border: 2px solid #000000; 
   transition: all 0.2s ease-in-out;
-  padding: 10px;
 }
 
 .btn.btn-outline-black:hover {
   background-color: #000000;
   color: #ffffff;
+}
+
+.signup-section {
+  display: flex;
+  align-items: center; 
+  justify-content: flex-end;
+  padding: 5px 5px 0 5px; 
+  margin-bottom: 0;
+  margin-top: 40px;
+}
+
+.signup-section p {
+  margin-bottom: 0; 
+  flex-grow: 1; 
+  text-align: right; 
+  margin-right: 20px;
+}
+
+.sign-up-body{
+  background-color: black;
 }

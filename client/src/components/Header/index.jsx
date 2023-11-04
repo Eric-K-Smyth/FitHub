@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import headerBg from '../../../src/assets/images/fithub-home-pic.jpg';
 import Auth from '../../utils/auth';
 
 const Header = () => {
@@ -8,7 +7,7 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="bg-primary text-light mb-3 py-3 flex-row align-center" style={{ backgroundImage: `url(${headerBg})` }}>
+    <header className="bg-primary text-light mb-3 py-3 flex-row align-center" style={{ background: 'black' }}>
       <div className="container flex-row justify-space-between-lg">
         <div className="left-align">
           <Link to="/">
