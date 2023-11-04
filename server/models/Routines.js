@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
 const RoutineSchema = new Schema({
   name: {
@@ -8,11 +8,11 @@ const RoutineSchema = new Schema({
   workouts: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Workouts',
+      ref: "Workouts",
     },
   ],
 });
 
-const Routines = model('Routines', RoutineSchema);
+const Routines = model("Routines", RoutineSchema);
 
 module.exports = Routines;

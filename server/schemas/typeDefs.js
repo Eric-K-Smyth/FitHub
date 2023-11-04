@@ -41,8 +41,8 @@ const typeDefs = `
     category: String
     instructions: String
     image: String
-    sets: Number
-    reps: Number
+    sets: Int
+    reps: Int
   }
 
   type Mutation {

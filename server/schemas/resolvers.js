@@ -1,17 +1,27 @@
-const { User, Workouts, Routines, Diets } = require('../models');
-const { signToken, AuthenticationError } = require('../utils/auth');
+const { User, Workouts, Routines, Diets } = require("../models");
+const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate(['dietary', 'routines']);
+      return User.find()
+        .populate("dietary")
+        .populate({
+          path: "routines",
+          populate: {
+            path: "workouts",
+          },
+        });
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate(['dietary', 'routines']);
+      return User.findOne({ username }).populate(["dietary", "routines"]);
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate(['dietary', 'routines']);
+        return User.findOne({ _id: context.user._id }).populate([
+          "dietary",
+          "routines",
+        ]);
       }
       throw AuthenticationError("You need to be logged in!");
     },
@@ -50,7 +60,6 @@ const resolvers = {
       return { token, user };
     },
   },
-
 };
 
 module.exports = resolvers;
