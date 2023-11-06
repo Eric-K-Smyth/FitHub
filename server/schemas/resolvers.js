@@ -1,10 +1,18 @@
-const { User, Workouts, Routines, Diets } = require("../models");
+const { User, Profile, Workouts, Routines, Diets } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
   Query: {
+
     users: async () => {
-      return User.find()
+      return User.find();
+    },
+    user: async (parent, { username }) => {
+      return User.findOne({ username });
+    },
+
+    profiles: async () => {
+      return Profile.find()
         .populate("dietary")
         .populate({
           path: "routines",
@@ -13,18 +21,30 @@ const resolvers = {
           },
         });
     },
-    user: async (parent, { username }) => {
-      return User.findOne({ username }).populate(["dietary", "routines"]);
-    },
-    me: async (parent, args, context) => {
+
+    profile: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate([
-          "dietary",
-          "routines",
-        ]);
+        return Profile.findOne({ username: context.user.username })
+        .populate("dietary")
+        .populate({
+          path: "routines",
+          populate: {
+            path: "workouts",
+          },
+        });
       }
       throw AuthenticationError("You need to be logged in!");
     },
+
+    dietary: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Diets.find(params).sort({ createdAt: -1 });
+    },
+    diet: async (parent, { dietId }) => {
+      return Diets.findOne({ _id: dietId });
+    },
+    
+    
     // User: {
     //   dietary: async (parent) => {
     //     return await Diets.find({ _id: { $in: parent.dietary } });

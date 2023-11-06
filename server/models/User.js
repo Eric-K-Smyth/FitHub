@@ -19,38 +19,10 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  height: {
-    type: Number,
-    required: true,
+  profile: {
+    type: Schema.Types.ObjectId,
+    ref: 'Profile'
   },
-  payMember: {
-    type: Boolean,
-    required: true,
-  },
-  bw_start: {
-    type: Number,
-    required: true,
-  },
-  bw_current: {
-    type: Number,
-    required: true,
-  },
-  bw_goal: {
-    type: Number,
-    required: true,
-  },
-  dietary: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Diets",
-    },
-  ],
-  routines: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Routines",
-    },
-  ],
 });
 
 userSchema.pre("save", async function (next) {
@@ -58,7 +30,6 @@ userSchema.pre("save", async function (next) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
   }
-
   next();
 });
 

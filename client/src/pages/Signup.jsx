@@ -43,8 +43,7 @@ const Signup = () => {
         variables: { ...formState },
       });
 
-      Auth.login(data.addUser.token);
-      navigate('/questionnaire');
+      Auth.signuplogin(data.addUser.token);
       
     } catch (e) {
       console.error(e);
