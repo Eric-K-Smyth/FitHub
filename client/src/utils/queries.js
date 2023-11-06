@@ -43,18 +43,40 @@ export const QUERY_SINGLE_THOUGHT = gql`
   }
 `;
 
-export const QUERY_ME = gql`
-  query me {
-    me {
+export const QUERY_PROFILE = gql`
+  query profile {
+    profile {
       _id
       username
-      email
-      thoughts {
+      height
+      bw_start
+      bw_current
+      bw_goal
+      dietary {
         _id
-        thoughtText
-        thoughtAuthor
+        name
         createdAt
+      }
+      routines {
+        _id
+        name
       }
     }
   }
 `;
+
+// export const QUERY_ME = gql`
+//   query me {
+//     me {
+//       _id
+//       username
+//       email
+//       thoughts {
+//         _id
+//         thoughtText
+//         thoughtAuthor
+//         createdAt
+//       }
+//     }
+//   }
+// `;
