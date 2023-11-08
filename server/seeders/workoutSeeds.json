@@ -22,5 +22,109 @@
     "image": "url-link.com",
     "sets": 100,
     "reps": 1
+  },
+  {
+    "name": "jumping jacks",
+    "category": "cardio",
+    "instructions": "Jump and spread arms and legs, then return to the starting position",
+    "image": "url-link.com",
+    "sets": 3,
+    "reps": 15
+  },
+  {
+    "name": "burpees",
+    "category": "full-body",
+    "instructions": "Squat, kick your feet back, do a push-up, jump back to a squat, and then jump up",
+    "image": "url-link.com",
+    "sets": 4,
+    "reps": 10
+  },
+  {
+    "name": "plank",
+    "category": "core",
+    "instructions": "Hold a push-up position with your body straight",
+    "image": "url-link.com",
+    "sets": 3,
+    "reps": 30
+  },
+  {
+    "name": "lunges",
+    "category": "lower-body",
+    "instructions": "Step forward with one leg, bending both knees, and return to a standing position",
+    "image": "url-link.com",
+    "sets": 4,
+    "reps": 12
+  },
+  {
+    "name": "bicycle crunches",
+    "category": "upper-body",
+    "instructions": "Hang from a bar and pull your body up until your chin is above the bar",
+    "image": "url-link.com",
+    "sets": 4,
+    "reps": 8
+  },
+  {
+    "name": "squats",
+    "category": "lower-body",
+    "instructions": "Bend your knees and lower your body, then stand back up",
+    "image": "url-link.com",
+    "sets": 4,
+    "reps": 12
+  },
+  {
+    "name": "mountian climbers",
+    "category": "cardio",
+    "instructions": "Start in a plank position and alternate bringing your knees to your chest",
+    "image": "url-link.com",
+    "sets": 3,
+    "reps": 20
+  },
+  {
+    "name": "russian twists",
+    "category": "core",
+    "instructions": "Sit on the floor, lean back, and twist your torso to touch the floor on each side",
+    "image": "url-link.com",
+    "sets": 3,
+    "reps": 15
+  },
+  {
+    "name": "high knees",
+    "category": "cardio",
+    "instructions": "Run in place, bringing your knees as high as possible with each step",
+    "image": "url-link.com",
+    "sets": 3,
+    "reps": 30
+  },
+  {
+    "name": "box jumps",
+    "category": "lower-body",
+    "instructions": "Jump onto a box or platform and then step down",
+    "image": "url-link.com",
+    "sets": 4,
+    "reps": 10
+  },
+  {
+    "name": "dumbell rows",
+    "category": "upper-body",
+    "instructions": "Bend at the waist and pull dumbbells toward your hips",
+    "image": "url-link.com",
+    "sets": 3,
+    "reps": 12
+  },
+  {
+    "name": "leg raises",
+    "category": "core",
+    "instructions": "Lie on your back and raise your legs toward the ceiling, then lower them without touching the ground",
+    "image": "url-link.com",
+    "sets": 3,
+    "reps": 15
+  },
+  {
+    "name": "jump rope",
+    "category": "cardio",
+    "instructions": "Jump over a rope, continuously swinging it over your head and under your feet",
+    "image": "url-link.com",
+    "sets": 3,
+    "reps": 1
   }
 ]
