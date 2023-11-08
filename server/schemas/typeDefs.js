@@ -21,6 +21,7 @@ const typeDefs = `
     bw_goal: Int
     dietary: [Diets]
     routines: [Routines]
+    calendar: [String]
   }
 
   type Diets {
@@ -49,7 +50,7 @@ const typeDefs = `
     users: [User]
     user(username: String!): User
     profiles: [Profile]
-    profile: Profile
+    profile(username: String!): Profile
     dietary(username: String): [Diets]
     diet(dietId: ID!): Diets
     me: User
@@ -58,10 +59,12 @@ const typeDefs = `
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    createProfile(_id: ID!, username: String, height: Int!, payMember: Boolean, bw_start: Int!, bw_current: Int, bw_goal: Int!, dietary: String, routines: String): Profile
+    createProfile(_id: ID!, username: String, height: Int!, payMember: Boolean, bw_start: Int!, bw_current: Int, bw_goal: Int!, dietary: [String], routines: [String], calendar: [String]): Profile
+    addDateToCalendar(username: String!, date: String!): Profile
+    createRoutine(name: String!): Routines
+    addWorkoutToRoutine(workoutId: ID!, routineId: ID!): Routines
+    addRoutineToProfile(username: String!,routineId: ID!): Profile
   }
 `;
-//we need typeDef for Calendar
-// we need mutations for profile (add routines to profile)
-// we need mutation for calendar (add date to calender)
+
 module.exports = typeDefs;

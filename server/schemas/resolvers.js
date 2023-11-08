@@ -21,7 +21,7 @@ const resolvers = {
         });
     },
 
-    profile: async (parent, args, context) => {
+    profile: async (parent, { username }, context) => {
       if (context.user) {
         return Profile.findOne({ username: context.user.username })
           .populate("dietary")
@@ -43,21 +43,6 @@ const resolvers = {
       return Diets.findOne({ _id: dietId });
     },
 
-    // User: {
-    //   dietary: async (parent) => {
-    //     return await Diets.find({ _id: { $in: parent.dietary } });
-    //   },
-    //   routines: async (parent) => {
-    //     return await Routines.find({ _id: { $in: parent.routines } }).populate('workouts');
-    //   }
-    // },
-    // Routines: {
-    //   workouts: async (parent) => {
-    //     return Workouts.find({ _id: { $in: parent.workouts } });
-    //   }
-    // }
-
-    //we need typeDef for Calendar
     // we need mutations for profile (add routines to profile)
     // we need mutation for calendar (add date to calender)
   },
@@ -93,6 +78,7 @@ const resolvers = {
         bw_goal,
         dietary,
         routines,
+        calendar,
       }
     ) => {
       const newProfile = await Profile.create({
@@ -105,19 +91,42 @@ const resolvers = {
         bw_goal,
         dietary,
         routines,
+        calendar,
       });
 
-      await newProfile
-        .populate("dietary")
-        .populate({
-          path: "routines",
-          populate: {
-            path: "workouts",
-          },
-        })
-        .execPopulate();
-
       return newProfile;
+    },
+
+    addDateToCalendar: async (parent, { username, date }) => {
+      return Profile.findOneAndUpdate(
+        { username: username },
+        { $addToSet: { calendar: date } },
+        { new: true }
+      );
+    },
+
+    createRoutine: async (parent, { name, workouts }) => {
+      const newRoutine = await Routines.create({
+        name,
+        workouts,
+      });
+      return newRoutine;
+    },
+
+    addWorkoutToRoutine: async (parent, { routineId, workoutId }) => {
+      return Routines.findOneAndUpdate(
+        { _id: routineId },
+        { $addToSet: { workouts: workoutId } },
+        { new: true }
+      );
+    },
+
+    addRoutineToProfile: async (parent, { username, routineId }) => {
+      return Profile.findOneAndUpdate(
+        { username: username },
+        { $addToSet: { routines: routineId } },
+        { new: true }
+      );
     },
   },
 };
