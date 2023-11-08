@@ -58,8 +58,10 @@ const typeDefs = `
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    
+    createProfile(_id: ID!, username: String, height: Int!, payMember: Boolean, bw_start: Int!, bw_current: Int, bw_goal: Int!, dietary: String, routines: String): Profile
   }
 `;
-
+//we need typeDef for Calendar
+// we need mutations for profile (add routines to profile)
+// we need mutation for calendar (add date to calender)
 module.exports = typeDefs;
