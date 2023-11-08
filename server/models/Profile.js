@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const profileSchema = new Schema({
-  username : {
+  username: {
     type: String,
     required: true,
     trim: true,
@@ -36,6 +36,11 @@ const profileSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: "Routines",
+    },
+  ],
+  calendar: [
+    {
+      type: String,
     },
   ],
 });

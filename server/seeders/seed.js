@@ -21,7 +21,7 @@ db.once("open", async () => {
     await Profile.create(profileSeeds);
     console.log("------ Profiles seeded! -------")
 
-    // add diets to Users // dietarySeeds.length = 4
+    // add diets to Users 
     for (let i = 0; i < dietarySeeds.length; i++) {
       const { _id } = await Diets.create(dietarySeeds[i]);
       await Profile.findOneAndUpdate(
@@ -35,10 +35,9 @@ db.once("open", async () => {
     }
     console.log("------ Diets saved on Profiles seeded! -------");
 
-    // add Routines to Users // routineSeeds.lenght = 2
+    // add Routines to Users
     for (let i = 0; i < routineSeeds.length; i++) {
       const { _id: _id_routine } = await Routines.create(routineSeeds[i]);
-      console.log(_id_routine);
       await Profile.findOneAndUpdate(
         { username: "Brian" },
         {
@@ -53,8 +52,6 @@ db.once("open", async () => {
     // add the workout to the routines // workoutSeeds.lenght = 3
     for (let j = 0; j < workoutSeeds.length; j++) {
       const { _id } = await Workouts.create(workoutSeeds[j]);
-      console.log(`workout _Id: ${_id}`);
-      console.log(`value of j: ${j}`);
       await Routines.findOneAndUpdate(
         { name: "A" },
         {
