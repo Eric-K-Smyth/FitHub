@@ -42,12 +42,9 @@ const resolvers = {
     diet: async (parent, { dietId }) => {
       return Diets.findOne({ _id: dietId });
     },
-<<<<<<< Updated upstream
-
-    // we need mutations for profile (add routines to profile)
-    // we need mutation for calendar (add date to calender)
-=======
->>>>>>> Stashed changes
+    workouts: async () => {
+      return Workouts.find();
+    },
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {

@@ -1,129 +1,297 @@
 [
   {
-    "name": "pushup",
-    "category": "cardio",
-    "instructions": "up and down",
-    "image": "url-link.com",
+    "name": "Pushups",
+    "category": "Upper-Body",
+    "instructions": "Start in a plank position with your hands shoulder-width apart. Lower your chest to the ground by bending your elbows, then push back up to the starting position. Repeat for the specified number of reps.",
+    "image": "https://images.unsplash.com/photo-1616803689943-5601631c7fec?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "sets": 4,
     "reps": 3
   },
   {
-    "name": "running",
-    "category": "endurance",
-    "instructions": "run forest run",
-    "image": "url-link.com",
+    "name": "Running",
+    "category": "Cardio",
+    "instructions": "Find a suitable running route or treadmill. Start running at a comfortable pace and maintain it for the specified duration.",
+    "image": "https://images.unsplash.com/photo-1509833903111-9cb142f644e4?q=80&w=1707&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "sets": 1,
     "reps": 1
   },
   {
-    "name": "yoga strech",
-    "category": "meditation",
-    "instructions": "chill and relax",
-    "image": "url-link.com",
-    "sets": 100,
+    "name": "Downward Dog",
+    "category": "Flexibility",
+    "instructions": "Find a quiet and comfortable space. Start on your hands and knees, then lift your hips towards the ceiling while pressing your palms into the ground. Create an inverted V-shape with your body, keeping your feet hip-width apart and heels slightly lowered. Hold this position for the specified duration.",
+    "image": "https://images.unsplash.com/photo-1632167759227-80bdfe5bfbf2?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "sets": 3,
     "reps": 1
   },
   {
-    "name": "jumping jacks",
-    "category": "cardio",
-    "instructions": "Jump and spread arms and legs, then return to the starting position",
-    "image": "url-link.com",
+    "name": "Warrior Pose",
+    "category": "Flexibility",
+    "instructions": "Find a quiet and comfortable space. Stand with your feet wide apart, with one foot facing forward and the other turned out to the side. Bend your front knee to a 90-degree angle while keeping your back leg straight and your arms extended to the sides. Hold this strong and grounded position for the specified duration, then switch sides and repeat.",
+    "image": "https://images.unsplash.com/photo-1561577732-12fffa81b37e?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "sets": 3,
+    "reps": 1
+  },
+  {
+    "name": "Bridge Pose",
+    "category": "Flexibility",
+    "instructions": "Find a quiet and comfortable space. Lie on your back with your knees bent and feet flat on the ground, hip-width apart. Press through your feet and lift your hips off the ground, creating a bridge with your body. Interlace your hands beneath your back for support. Hold this pose, focusing on opening your chest and stretching your spine, for the specified duration.",
+    "image": "https://plus.unsplash.com/premium_photo-1677358171137-25229ff15e21?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "sets": 3,
+    "reps": 1
+  },
+  {
+    "name": "Jumping Jacks",
+    "category": "Cardio",
+    "instructions": "Stand with your feet together and arms at your sides. Jump and spread your legs while raising your arms overhead. Return to the starting position by jumping again. Repeat for the specified number of reps.",
+    "image": "https://plus.unsplash.com/premium_photo-1664368832389-37d40e819a2a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "sets": 3,
     "reps": 15
   },
   {
-    "name": "burpees",
-    "category": "full-body",
-    "instructions": "Squat, kick your feet back, do a push-up, jump back to a squat, and then jump up",
-    "image": "url-link.com",
+    "name": "Burpees",
+    "category": "Cardio",
+    "instructions": "Start in a standing position. Squat down, kick your feet back into a push-up position, perform a push-up, jump your feet back to a squat, and then explosively jump up. Repeat for the specified number of reps.",
+    "image": "https://media.istockphoto.com/id/1305548877/photo/active-woman-exercising-in-a-high-intensity-interval-training.jpg?s=1024x1024&w=is&k=20&c=fvHHuPLuc-IGneNBKHIVUx0FsIVkMoa4CvOCTgF93Tc=",
     "sets": 4,
     "reps": 10
   },
   {
-    "name": "plank",
-    "category": "core",
-    "instructions": "Hold a push-up position with your body straight",
-    "image": "url-link.com",
+    "name": "Plank",
+    "category": "Core",
+    "instructions": "Start in a push-up position with your body in a straight line from head to heels. Hold this position, engaging your core muscles, for the specified duration.",
+    "image": "https://images.unsplash.com/photo-1626444231642-6bd985bca16a?q=80&w=1769&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "sets": 3,
     "reps": 30
   },
   {
-    "name": "lunges",
-    "category": "lower-body",
-    "instructions": "Step forward with one leg, bending both knees, and return to a standing position",
-    "image": "url-link.com",
+    "name": "Lunges",
+    "category": "Lower-Body",
+    "instructions": "Stand with your feet hip-width apart. Step forward with one leg, bending both knees to a 90-degree angle, then return to a standing position. Alternate legs for the specified number of reps.",
+    "image": "https://images.unsplash.com/photo-1595571024048-45a59177f538?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "sets": 4,
     "reps": 12
   },
   {
-    "name": "bicycle crunches",
-    "category": "upper-body",
-    "instructions": "Hang from a bar and pull your body up until your chin is above the bar",
-    "image": "url-link.com",
+    "name": "Bicycle Crunches",
+    "category": "Core",
+    "instructions": "Lie on your back with your hands behind your head and your knees bent. Bring your right elbow and left knee toward each other while extending your right leg. Alternate sides in a pedaling motion for the specified number of reps.",
+    "image": "https://cdn.media.amplience.net/i/thegymgroup/The_Gym_Group-Exercises-How_To_Do_A_Bicycle_Crunch-Step_By_Step_6?fmt=auto&h=545&w=1440&sm=c&qlt=default&$qlt$&$poi$",
     "sets": 4,
     "reps": 8
   },
   {
-    "name": "squats",
-    "category": "lower-body",
-    "instructions": "Bend your knees and lower your body, then stand back up",
-    "image": "url-link.com",
+    "name": "Squats",
+    "category": "Lower-Body",
+    "instructions": "Stand with your feet shoulder-width apart. Bend your knees and lower your body, keeping your back straight, then stand back up. Repeat for the specified number of reps.",
+    "image": "https://www.themanual.com/wp-content/uploads/sites/9/2022/03/squats.jpg?fit=800%2C533&p=1",
     "sets": 4,
     "reps": 12
   },
   {
-    "name": "mountian climbers",
-    "category": "cardio",
-    "instructions": "Start in a plank position and alternate bringing your knees to your chest",
-    "image": "url-link.com",
+    "name": "Mountain Climbers",
+    "category": "Cardio",
+    "instructions": "Start in a plank position with your hands under your shoulders. Alternate bringing your knees toward your chest as if you are climbing a mountain. Repeat for the specified number of reps.",
+    "image": "https://i.insider.com/61ddba714ede320018b6ffb8?width=1000&format=jpeg&auto=webp",
     "sets": 3,
     "reps": 20
   },
   {
-    "name": "russian twists",
-    "category": "core",
-    "instructions": "Sit on the floor, lean back, and twist your torso to touch the floor on each side",
-    "image": "url-link.com",
+    "name": "Russian Twists",
+    "category": "Core",
+    "instructions": "Sit on the floor with your knees bent and your feet off the ground. Lean back slightly and twist your torso to touch the floor on each side with your hands. Repeat for the specified number of reps.",
+    "image": "https://media1.popsugar-assets.com/files/thumbor/QVr7RGETe1Cw8MsARuxgv-8SQ0o/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2018/11/10/068/n/1922729/ea535e673c9e27ca_seated-russina-twist/i/Seated-Russian-Twist.jpg",
     "sets": 3,
     "reps": 15
   },
   {
-    "name": "high knees",
-    "category": "cardio",
-    "instructions": "Run in place, bringing your knees as high as possible with each step",
-    "image": "url-link.com",
+    "name": "High Knees",
+    "category": "Cardio",
+    "instructions": "Run in place, bringing your knees as high as possible with each step. Maintain a brisk pace for the specified number of reps.",
+    "image": "https://as2.ftcdn.net/v2/jpg/02/10/40/55/1000_F_210405552_IIh2seSJE7WBOA6wTjXa5qm43lDSL7KT.jpg",
     "sets": 3,
     "reps": 30
   },
   {
-    "name": "box jumps",
-    "category": "lower-body",
-    "instructions": "Jump onto a box or platform and then step down",
-    "image": "url-link.com",
+    "name": "Box Jumps",
+    "category": "Lower-Body",
+    "instructions": "Stand in front of a sturdy box or platform. Jump onto the box, landing with both feet, then step down. Repeat for the specified number of reps.",
+    "image": "https://as1.ftcdn.net/v2/jpg/01/61/51/12/1000_F_161511290_fA1nrTFBwYvuttTlTNYT5OmUwRQSZxD5.jpg",
     "sets": 4,
     "reps": 10
   },
   {
-    "name": "dumbell rows",
-    "category": "upper-body",
-    "instructions": "Bend at the waist and pull dumbbells toward your hips",
-    "image": "url-link.com",
+    "name": "Dumbbell Rows",
+    "category": "Upper-Body",
+    "instructions": "Hold a dumbbell in each hand, bend at the waist with a straight back, and pull the dumbbells toward your hips, squeezing your shoulder blades together. Lower the dumbbells back down. Repeat for the specified number of reps.",
+    "image": "https://barbend.com/wp-content/uploads/2021/04/3.jpg",
     "sets": 3,
     "reps": 12
   },
   {
-    "name": "leg raises",
-    "category": "core",
-    "instructions": "Lie on your back and raise your legs toward the ceiling, then lower them without touching the ground",
-    "image": "url-link.com",
+    "name": "Leg Raises",
+    "category": "Core",
+    "instructions": "Lie on your back with your legs straight. Lift your legs toward the ceiling, keeping them straight, then lower them without touching the ground. Repeat for the specified number of reps.",
+    "image": "https://hips.hearstapps.com/hmg-prod/images/lying-leg-raises-1546550690.jpg?crop=0.750xw:1.00xh;0.0829xw,0&resize=1200:*",
     "sets": 3,
     "reps": 15
   },
   {
-    "name": "jump rope",
-    "category": "cardio",
-    "instructions": "Jump over a rope, continuously swinging it over your head and under your feet",
-    "image": "url-link.com",
+    "name": "Jump Rope",
+    "category": "Cardio",
+    "instructions": "Hold a jump rope and jump over it continuously, swinging it over your head and under your feet. Maintain a steady rhythm for the specified duration.",
+    "image": "https://as1.ftcdn.net/v2/jpg/01/73/92/30/1000_F_173923082_j0MdE8xjv1yfm2EJUrSI70o29EDLulYU.jpg",
+    "sets": 3,
+    "reps": 1
+  },
+  {
+    "name": "Jumping Lunges",
+    "category": "Cardio",
+    "instructions": "Start in a lunge position with your right foot forward and left foot back. Jump explosively, switching your legs mid-air and landing in a lunge with your left foot forward. Continue alternating legs for the specified number of reps.",
+    "image": "https://as1.ftcdn.net/v2/jpg/04/43/20/78/1000_F_443207838_TOK39pzXKU2R1nTeobi9JPQLbPJZNTiy.jpg",
+    "sets": 3,
+    "reps": 12
+  },
+  {
+    "name": "Push-Up with Shoulder Tap",
+    "category": "Upper-Body",
+    "instructions": "Start in a push-up position. Perform a push-up, and as you come back up, tap your left shoulder with your right hand. Repeat on the other side, tapping your right shoulder with your left hand. Continue alternating shoulder taps for the specified number of reps.",
+    "image": "https://s3assets.skimble.com/assets/1715396/image_iphone.jpg",
+    "sets": 3,
+    "reps": 10
+  },
+  {
+    "name": "Bicep Curls",
+    "category": "Upper-Body",
+    "instructions": "Hold a dumbbell in each hand with your arms fully extended. Bend your elbows, curling the dumbbells toward your shoulders, then lower them back down. Repeat for the specified number of reps.",
+    "image": "https://as2.ftcdn.net/v2/jpg/06/01/71/61/1000_F_601716186_pHefy47R7zgwZSJp4rjtW8WI7vyWUtWh.jpg",
+    "sets": 3,
+    "reps": 12
+  },
+  {
+    "name": "Boxing Jabs",
+    "category": "Cardio",
+    "instructions": "Stand in a boxing stance with one foot forward and one foot back. Extend your lead hand (left for orthodox, right for southpaw) in a jab motion, then retract it quickly. Alternate jabs with both hands for the specified number of reps.",
+    "image": "https://images.squarespace-cdn.com/content/v1/5ab15305f2e6b1848781c80f/1530033487338-BDYX837441VT6274LSAO/woman+shadowboxing+with+pink+boxing+gloves+outdoors?format=1500w",
+    "sets": 3,
+    "reps": 20
+  },
+  {
+    "name": "Leg Press",
+    "category": "Lower-Body",
+    "instructions": "Sit in a leg press machine with your feet shoulder-width apart on the footplate. Push the weight upward by extending your knees, then slowly return to the starting position. Repeat for the specified number of reps.",
+    "image": "https://images.livemint.com/img/2022/09/29/1140x641/fitness_leg_press_1664439290507_1664439313926_1664439313926.jpg",
+    "sets": 4,
+    "reps": 10
+  },
+  {
+    "name": "Seated Rows",
+    "category": "Upper-Body",
+    "instructions": "Sit down at a rowing machine with your knees slightly bent. Grasp the handles and pull them toward your torso while squeezing your shoulder blades together. Slowly return to the starting position. Repeat for the specified number of reps.",
+    "image": "https://barbend.com/wp-content/uploads/2022/01/shutterstock_1009815742-1.jpg",
+    "sets": 4,
+    "reps": 12
+  },
+  {
+    "name": "Side Plank",
+    "category": "Core",
+    "instructions": "Lie on your side with your legs straight and prop yourself up on your elbow. Keep your body in a straight line and hold this position for the specified duration. Repeat on the other side.",
+    "image": "https://images.ctfassets.net/hjcv6wdwxsdz/2nnHmIGu7L8rPOWhDZWfy8/3186c231d6c7215d02b43326ab19452a/Woman-on-yoga-mat-doing-side-plank.png?w=800&h=588&q=50&fm=avif",
+    "sets": 3,
+    "reps": 30
+  },
+  {
+    "name": "Kettlebell Swings",
+    "category": "Upper-Body",
+    "instructions": "Hold a kettlebell with both hands in front of you. Bend your knees slightly, then hinge at your hips to swing the kettlebell between your legs. Thrust your hips forward and swing the kettlebell up to shoulder height. Repeat for the specified number of reps.",
+    "image": "https://www.agilityrehab.com.au/getattachment/f08426d7-f343-421f-ac26-de0acafe21d4/.aspx",
+    "sets": 3,
+    "reps": 15
+  },
+  {
+    "name": "Lateral Raises",
+    "category": "Upper-Body",
+    "instructions": "Hold a dumbbell in each hand at your sides. Raise your arms straight out to the sides until they are at shoulder level, then lower them back down. Repeat for the specified number of reps.",
+    "image": "https://hips.hearstapps.com/hmg-prod/images/lateral-raises-1621196517.jpg?crop=0.502xw:1.00xh;0.256xw,0&resize=1200:*",
+    "sets": 3,
+    "reps": 12
+  },
+  {
+    "name": "Deadlifts",
+    "category": "Lower-Body",
+    "instructions": "Stand with your feet hip-width apart and a barbell in front of you. Bend at your hips and knees to lower your torso, keeping your back flat. Grab the barbell with an overhand grip, then stand up straight, lifting the barbell as you do. Lower the barbell back down, maintaining good form. Repeat for the specified number of reps.",
+    "image": "https://images.squarespace-cdn.com/content/v1/5b86055bf407b4424a44ccbc/e3500e6e-de7d-4a36-b0dc-51cd159a50b9/gym-instructor-lifting-barbell-at-urban-gym-picture-id559688761.jpg?format=1500w",
+    "sets": 4,
+    "reps": 8
+  },
+  {
+    "name": "Pilates Hundreds",
+    "category": "Core",
+    "instructions": "Lie on your back with your legs raised and arms straight at your sides. Pump your arms up and down while breathing in and out for the specified number of reps, engaging your core throughout.",
+    "image": "https://img.livestrong.com/630x/cme-data/getty%2F1e1ee3144bb5450e91d3a494785fa341.jpg?type=webp",
+    "sets": 3,
+    "reps": 100
+  },
+  {
+    "name": "Battle Ropes",
+    "category": "Cardio",
+    "instructions": "Hold one end of a battle rope in each hand. Stand with your feet shoulder-width apart. Make alternating waves with the ropes by moving your arms up and down vigorously. Continue for the specified duration.",
+    "image": "https://static.nike.com/a/images/f_auto/dpr_1.3,cs_srgb/w_1309,c_limit/241055f7-dbf0-496c-bc98-abb3ea9c12bc/battle-ropes-what-they-are-their-benefits-and-exercises-you-can-do.jpg",
+    "sets": 3,
+    "reps": 1
+  },
+  {
+    "name": "Calf Raises",
+    "category": "Lower-Body",
+    "instructions": "Stand with your feet hip-width apart. Raise your heels as high as possible by pushing through the balls of your feet. Lower your heels back down and repeat for the specified number of reps.",
+    "image": "https://hips.hearstapps.com/hmg-prod/images/angela-calf-exercises-main-1557866836.jpg?crop=0.625xw:1.00xh;0.211xw,0&resize=1200:*",
+    "sets": 4,
+    "reps": 15
+  },
+  {
+    "name": "Hanging Leg Raises",
+    "category": "Core",
+    "instructions": "Hang from a pull-up bar with your legs straight. Lift your legs up in front of you as high as possible, then lower them back down without swinging. Repeat for the specified number of reps.",
+    "image": "https://miro.medium.com/v2/resize:fit:828/0*Mly7U-TaaUvMxnpW",
+    "sets": 3,
+    "reps": 12
+  },
+  {
+    "name": "Sprints",
+    "category": "Cardio",
+    "instructions": "Find an open space or track. Sprint at maximum effort for a short distance, then walk or jog to recover. Repeat this cycle for the specified duration.",
+    "image": "https://simplifaster.com/wp-content/uploads/2018/10/Floating-Sprints.jpg",
+    "sets": 3,
+    "reps": 1
+  },
+  {
+    "name": "Pilates Roll-Up",
+    "category": "Flexibility",
+    "instructions": "Find a quiet and comfortable space. Lie on your back with your legs straight, arms overhead. Inhale, then exhale as you engage your core and roll up, reaching forward to touch your toes. Slowly roll back down to the starting position. Repeat for the specified number of reps.",
+    "image": "https://images.squarespace-cdn.com/content/v1/5d31ed671abe780001b2964d/c9d5b320-568e-4694-8379-b1c71709281d/Pilates+Roll+Up?format=1500w",
+    "sets": 3,
+    "reps": 10
+  },
+  {
+    "name": "Lizard Pose",
+    "category": "Flexibility",
+    "instructions": "Find a quiet and comfortable space. Start in a plank position, then step your right foot outside your right hand. Lower your hips and chest toward the ground while keeping your right knee bent. Hold this stretch, feeling a deep hip opener, for the specified duration. Repeat on the other side.",
+    "image": "https://media1.popsugar-assets.com/files/thumbor/564dAphAB-L1w_R_olHjznNXN1A/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2014/04/08/614/n/1922729/99de93c12e130d36_Open-Lizard-1600.xxxlarge/i/Yoga-Split-Stretch-Lizard.jpg",
+    "sets": 3,
+    "reps": 1
+  },
+  {
+    "name": "Barbell Squats",
+    "category": "Lower-Body",
+    "instructions": "Stand with your feet shoulder-width apart, a barbell resting on your upper back. Lower your body by bending your knees and hips, keeping your back straight. Go as low as you can while maintaining good form, then push through your heels to return to the starting position. Repeat for the specified number of reps.",
+    "image": "https://images.ctfassets.net/3s5io6mnxfqz/34Npc5PKLKJi6HIYvFw9XI/3e45754912cf266e7401cb8074c63239/AdobeStock_386146138_2.jpeg?w=828",
+    "sets": 4,
+    "reps": 8
+  },
+  {
+    "name": "Pilates Swimming",
+    "category": "Core",
+    "instructions": "Find a quiet and comfortable space. Lie on your stomach with your arms extended in front of you and your legs straight. Inhale and lift your arms and legs off the ground, simultaneously fluttering them up and down. Keep your head and chest off the ground. Breathe rhythmically as you swim for the specified duration.",
+    "image": "https://www.realsimple.com/thmb/-80Vj7wCNPMM6O4N2ulWSRg-1PA=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Swimming-ad64130b407a4f6e80299aaf6b2d94a2.png",
     "sets": 3,
     "reps": 1
   }

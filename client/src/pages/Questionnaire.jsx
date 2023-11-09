@@ -12,8 +12,9 @@ const Questionnaire = () => {
     bw_start: '',
     bw_current: '',
     bw_goal: '',
-    dietary: [],
-    routines: [],
+    dietary: ['654d4b4be6f309e1658ca671'],
+    routines: ['654d4b4be6f309e1658ca680'],
+    calendar: ['2023-11-09'],
   });
 
   const navigate = useNavigate();
@@ -72,6 +73,7 @@ const Questionnaire = () => {
         bw_goal: parsedGoalWeight, 
         dietary: formData.dietary, 
         routines: formData.routines,
+        calendar: formData.calendar,
       },
     });
   

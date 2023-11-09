@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Error from './pages/Error';
 import Questionnaire from './pages/Questionnaire';
+import Custom from './pages/Custom';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,9 @@ const router = createBrowserRouter([
       }, {
         path: '/profiles/:profileId',
         element: <Profile />
+      }, {
+        path: '/custom',
+        element: <Custom />
       }
     ]
   }
