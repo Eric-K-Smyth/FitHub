@@ -10,9 +10,9 @@ const resolvers = {
       return User.findOne({ username });
     },
 
-    profile: async (parent, { username }, context) => {
-      if (username) {
-        return Profile.findOne({ username: username })
+    profile: async (parent, args, context) => {
+      if (context.user) {
+        return Profile.findOne({ username: context.user.username })
           .populate("dietary")
           .populate({
             path: "routines",
@@ -31,7 +31,7 @@ const resolvers = {
     diet: async (parent, { dietId }) => {
       return Diets.findOne({ _id: dietId });
     },
-
+    
     // we need mutations for profile (add routines to profile)
     // we need mutation for calendar (add date to calender)
   },

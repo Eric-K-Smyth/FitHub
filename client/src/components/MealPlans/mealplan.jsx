@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MealList from "./meallist";
-import { SimpleGrid, Heading, Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
 
 function MealPlan({ selectedDiet }) {
   const [mealData, setMealData] = useState(null);
@@ -20,8 +20,7 @@ function MealPlan({ selectedDiet }) {
 
   return (
     <div>
-      <Heading>Suggested Meals</Heading>
-      {mealData && <MealList mealData={mealData} />}
+      {mealData && <MealList mealData={mealData} selectedDiet={selectedDiet} />}
     </div>
   );
 }

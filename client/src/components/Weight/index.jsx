@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Box, SimpleGrid, Heading, Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react';
+import { Stack, Text, Box, SimpleGrid, Heading, Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react';
 
 import {
   Stat,
@@ -14,47 +14,39 @@ const Weight = ({
   bw_start,
   bw_current,
   bw_goal,
-  title,
-  showTitle = true
+  title
 }) => {
 
   return (
     <div>
-      
-      
-      <SimpleGrid spacing={2} templateColumns='repeat(2, 1fr)' alignItems='center'>
-        <Box>
-          {showTitle && <Heading size='md'>{title}</Heading>}
+       <Box align={'center'}>
+          <Text color={'gray.600'} fontWeight={600} fontSize={'sm'} textTransform={'uppercase'} mb="2">
+             {title} 
+          </Text>
+        <StatGroup border='1px' borderColor='gray.400' pt='3'>
+          <Stat>
+            <StatLabel color={'gray.500'}>Start</StatLabel>
+            <StatNumber color={'gray.600'}>{bw_start}</StatNumber>
+            <StatHelpText>
+              lbs
+            </StatHelpText>
+          </Stat>
+          <Stat>
+            <StatLabel color={'gray.500'}>Current</StatLabel>
+            <StatNumber color={'gray.600'}>{bw_current}</StatNumber>
+            <StatHelpText>
+             lbs
+            </StatHelpText>
+          </Stat>
+          <Stat>
+            <StatLabel color={'gray.500'}>Goal</StatLabel>
+            <StatNumber color={'gray.600'}>{bw_goal}</StatNumber>
+            <StatHelpText>
+              lbs
+            </StatHelpText>
+          </Stat>
+        </StatGroup>
         </Box>
-        <Card>
-          <StatGroup>
-            <Stat>
-              <StatLabel>Start</StatLabel>
-              <StatNumber>{bw_start}</StatNumber>
-              <StatHelpText>
-                <StatArrow type='increase' />
-                23.36%
-              </StatHelpText>
-            </Stat>
-            <Stat>
-              <StatLabel>Current</StatLabel>
-              <StatNumber>{bw_current}</StatNumber>
-              <StatHelpText>
-                <StatArrow type='decrease' />
-                9.05%
-              </StatHelpText>
-            </Stat>
-            <Stat>
-              <StatLabel>Goal</StatLabel>
-              <StatNumber>{bw_goal}</StatNumber>
-              <StatHelpText>
-                <StatArrow type='decrease' />
-                9.05%
-              </StatHelpText>
-            </Stat>
-          </StatGroup>
-        </Card>
-      </SimpleGrid>
     </div>
   );
 };

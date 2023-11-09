@@ -22,30 +22,11 @@ export default function Meal({ meal }) {
 
     <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
       <Image src={imageUrl} alt='recipe' />
-
-      <Box p='6'>
-        <Box display='flex' alignItems='baseline'>
-          <Box
-            color='gray.500'
-            fontWeight='semibold'
-            letterSpacing='wide'
-            fontSize='xs'
-            textTransform='uppercase'
-            ml='2'
-          >
-            Preparation time: {meal.readyInMinutes} minutes &bull; Number of servings: {meal.servings}
-          </Box>
-        </Box>
-
+      <Box p='5'>
         <Box mt='1' fontWeight='semibold' as='h5' lineHeight='tight' noOfLines={1}>
-          {meal.title}
+          <a href={meal.sourceUrl}>{meal.title}</a>
         </Box>
-        <Box>
-          <Box as='span' color='gray.600' fontSize='sm'>
-          <a href={meal.sourceUrl}>Go to Recipe</a>
-          </Box>
-        </Box>
-        <Box display='flex' mt='2' alignItems='center' color='gray.500' fontWeight='semibold' letterSpacing='wide' fontSize='xs' textTransform='uppercase'>
+        <Box display='flex' mt='2' alignItems='center' justifyContent='space-evenly' color='gray.500' fontWeight='semibold' letterSpacing='wide' fontSize='xs' textTransform='uppercase'>
           <Box as='span' ml='2'>
             Preparation time: {meal.readyInMinutes} minutes
           </Box>

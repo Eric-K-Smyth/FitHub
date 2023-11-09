@@ -49,8 +49,7 @@ const typeDefs = `
   type Query {
     users: [User]
     user(username: String!): User
-    profiles: [Profile]
-    profile(username: String!): Profile
+    profile: Profile
     dietary(username: String): [Diets]
     diet(dietId: ID!): Diets
     me: User

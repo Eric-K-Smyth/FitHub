@@ -39,7 +39,8 @@ function QuoteComponent() {
   return (
     <div>
       {loading && <p>Loading...</p>}
-      {quote && <Text as='i'>{quote}</Text>}
+      {quote && <Text as='i' fontSize="1.5em" color={'gray.600'}>{quote}</Text>}
+      
       {error && <p>{error}</p>}
     </div>
   );

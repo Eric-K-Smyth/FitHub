@@ -1,23 +1,29 @@
 import { Link } from 'react-router-dom';
-import { SimpleGrid, Heading, Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react';
-
+import { Box, Text, SimpleGrid } from '@chakra-ui/react';
 
 const Routines = ({
+  routines,
   title,
-  showTitle = true
 }) => {
-
+  if (!routines.length) {
+    return <h3>No Routines Yet</h3>;
+  }
+  console.log(routines);
   return (
     <div>
-      {showTitle && <Heading size='md'>{title}</Heading>}
-      <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(200px, 1fr))'>
-        <Card>
-          <CardBody>
-
-          </CardBody>
-        </Card>
-        
-      </SimpleGrid>
+      <Text color={'gray.700'} fontWeight={600} fontSize={'sm'} textTransform={'uppercase'}>
+          {title}
+      </Text>
+      {routines &&
+        routines.map((routine) => (
+          <Box borderWidth='1px' borderRadius='lg' overflow='hidden' p='5' mb='5'>
+            <Box display='flex' alignItems='baseline'>
+              <Box color='gray.500' fontWeight='semibold' letterSpacing='wide' fontSize='sm' textTransform='uppercase' ml='2'>
+              Routine {routine.name}
+              </Box>
+            </Box>
+          </Box>
+        ))}
     </div>
   );
 };

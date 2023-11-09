@@ -22,7 +22,7 @@ db.once("open", async () => {
     console.log("------ Profiles seeded! -------")
 
     // add diets to Users 
-    for (let i = 0; i < dietarySeeds.length; i++) {
+    for (let i = 0; i < dietarySeeds.length-3; i++) {
       const { _id } = await Diets.create(dietarySeeds[i]);
       await Profile.findOneAndUpdate(
         { username: "Brian" },
