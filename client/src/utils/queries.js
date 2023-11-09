@@ -22,7 +22,22 @@ export const QUERY_PROFILE = gql`
     profile {
       _id
       username
+      name
+      age
+      gender
       height
+      weight
+      fitnessGoals {
+        loseWeight
+        buildMuscle
+        improveCardio
+        increaseFlexibility
+      }
+      workoutPreference
+      dietaryRestrictions
+      dietaryDetails
+      eatingHabits
+      payMember
       bw_start
       bw_current
       bw_goal
@@ -38,6 +53,7 @@ export const QUERY_PROFILE = gql`
     }
   }
 `;
+
 
 // export const QUERY_ME = gql`
 //   query me {

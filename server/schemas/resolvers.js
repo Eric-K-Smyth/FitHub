@@ -1,7 +1,7 @@
 const { User, Profile, Workouts, Routines, Diets } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 
-const resolvers = {
+const resolvers = { 
   Query: {
     users: async () => {
       return User.find();
@@ -42,9 +42,12 @@ const resolvers = {
     diet: async (parent, { dietId }) => {
       return Diets.findOne({ _id: dietId });
     },
+<<<<<<< Updated upstream
 
     // we need mutations for profile (add routines to profile)
     // we need mutation for calendar (add date to calender)
+=======
+>>>>>>> Stashed changes
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
