@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
 import homePageImage from '../../src/assets/images/training-pic.jpg';
-import { QUERY_THOUGHTS } from '../utils/queries';
+
 import InfoBlocks from '../components/InfoBlocks/index';
 import PricingTable from '../components/PricingTable/index';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_THOUGHTS);
+
 
   const [showPricingTable, setShowPricingTable] = useState(false);
 
