@@ -4,18 +4,22 @@ import { useQuery } from '@apollo/client';
 //import ThoughtForm from '../components/ThoughtForm';
 // import ThoughtList from '../components/ThoughtList';
 import Weight from '../components/Weight';
+import Routines from '../components/Routines';
+import QuoteComponent from '../components/QuoteGen';
+import MealPlan from '../components/MealPlans/mealplan';
 
 import { QUERY_USER, QUERY_PROFILE } from '../utils/queries';
 
 import Auth from '../utils/auth';
+import { Grid, GridItem } from '@chakra-ui/react';
 
 const Profile = () => {
   const { username: userParam } = useParams();
-
+  
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_PROFILE, {
     variables: { username: userParam },
   });
-
+  
   const user = data?.profile || data?.user || {};
   if (
     Auth.loggedIn() && 
@@ -28,7 +32,7 @@ const Profile = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
-
+  
   if (!user?.username) {
     return (
       <h4>
@@ -40,19 +44,33 @@ const Profile = () => {
 
   return (
     <div>
-      <div className="flex-row justify-center mb-3">
-
-        <div className="col-12 col-md-10 mb-5">
+       <Grid templateColumns="repeat(6,1fr)">
+        <GridItem as="aside" colSpan="1" minHeight="100hv">
+            {Auth.getProfile().authenticatedPerson.username}
+        </GridItem>
+        <GridItem as="main" colSpan="5">
           <Weight
-            bw_start = {user.bw_start}
-            bw_current = {user.bw_current}
-            bw_goal = {user.bw_goal}
-            title={`Body Weight`}
-            showUsername={false}
-          />
-        </div>
+              bw_start = {user.bw_start}
+              bw_current = {user.bw_current}
+              bw_goal = {user.bw_goal}
+              title={`Body Weight`}
+              showUsername={false}
+            />
+
+        </GridItem>
+       </Grid>            
+        <Routines
+            title={`Routines`}
+        />
+        <QuoteComponent></QuoteComponent>
+
+        {/* {user.dietary &&
+          user.dietary.map((diet) => (
+            <MealPlan selectedDiet={diet.name} />
+          ))
+        } */}
         
-      </div>
+
     </div>
   );
 };

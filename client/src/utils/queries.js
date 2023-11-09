@@ -35,6 +35,7 @@ export const QUERY_PROFILE = gql`
         _id
         name
       }
+      calendar
     }
   }
 `;

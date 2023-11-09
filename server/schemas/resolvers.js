@@ -10,17 +10,6 @@ const resolvers = {
       return User.findOne({ username });
     },
 
-    profiles: async () => {
-      return Profile.find()
-        .populate("dietary")
-        .populate({
-          path: "routines",
-          populate: {
-            path: "workouts",
-          },
-        });
-    },
-
     profile: async (parent, { username }, context) => {
       if (context.user) {
         return Profile.findOne({ username: context.user.username })

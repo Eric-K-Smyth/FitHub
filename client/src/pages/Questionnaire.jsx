@@ -45,7 +45,7 @@ const Questionnaire = () => {
     console.log(formData);
     try {
         // NEED TO IMPLEMENT DATA SUBMISSION TO BACKEND
-        navigate('/profile');
+        navigate('/me');
       } catch (error) {
         console.error('Error submitting form:', error);
       }
