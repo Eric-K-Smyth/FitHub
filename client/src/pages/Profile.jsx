@@ -20,6 +20,8 @@ const Profile = () => {
     variables: { username: userParam },
   });
   
+  console.log(username);
+
   const user = data?.profile || data?.user || {};
   if (
     Auth.loggedIn() && 

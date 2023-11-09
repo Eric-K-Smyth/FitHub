@@ -11,8 +11,8 @@ const resolvers = {
     },
 
     profile: async (parent, { username }, context) => {
-      if (context.user) {
-        return Profile.findOne({ username: context.user.username })
+      if (username) {
+        return Profile.findOne({ username: username })
           .populate("dietary")
           .populate({
             path: "routines",
