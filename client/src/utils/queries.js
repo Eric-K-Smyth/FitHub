@@ -6,11 +6,6 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      thoughts {
-        _id
-        thoughtText
-        createdAt
-      }
     }
   }
 `;
@@ -23,7 +18,6 @@ export const QUERY_PROFILE = gql`
       _id
       username
       height
-      weight
       payMember
       bw_start
       bw_current
@@ -37,7 +31,24 @@ export const QUERY_PROFILE = gql`
         _id
         name
       }
-      calendar 
+      calendar
+    }
+  }
+`;
+
+export const QUERY_SINGLE_ROUTINE = gql`
+  query getSingleRoutine($routineId: ID!) {
+    routines(routineId: $routineId) {
+      _id
+      name
+      workouts {
+        name
+        category
+        instructions
+        image
+        sets
+        reps
+      }
     }
   }
 `;
