@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { CREATE_PROFILE } from '../utils/mutations';
 import Auth from '../utils/auth';
-import './Style.css';
 
 const Questionnaire = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +12,7 @@ const Questionnaire = () => {
     bw_start: '',
     bw_current: '',
     bw_goal: '',
-    // dietary: ['654d4b4be6f309e1658ca671'],THIS INFORMATION IS BEING COLLECTED IN THE MEAL PLANNER ALREADY
+    dietary: ['654d4b4be6f309e1658ca671'],
     routines: ['654d4b4be6f309e1658ca680'],
     calendar: ['2023-11-09'],
   });
@@ -22,29 +21,13 @@ const Questionnaire = () => {
   const [createProfile] = useMutation(CREATE_PROFILE);
 
   const handleChange = (e) => {
-    const { name, type, checked, options } = e.target;
-    
-    if (type === 'checkbox') {
+    const { name, value, type, checked } = e.target;
       setFormData({
         ...formData,
-        [name]: checked,
+        [name]: type === 'checkbox' ? checked : value,
       });
-    } else if (type === 'select-multiple') {
-      let values = Array.from(options)
-                       .filter(option => option.selected)
-                       .map(option => option.value);
-      setFormData({
-        ...formData,
-        [name]: values,
-      });
-    } else {
-      setFormData({
-        ...formData,
-        [name]: e.target.value,
-      });
-    }
   };
-  
+
   console.log('THIS IS THE FORMDATA:', formData);
   
   const handleSubmit = async (event) => {
@@ -64,30 +47,33 @@ const Questionnaire = () => {
       return;
     }
     const parsedHeight = formData.height ? parseInt(formData.height) : null;
+    const parsedStartWeight = formData.bw_start ? parseInt(formData.bw_start) : null;
     const parsedCurrentWeight = formData.bw_current ? parseInt(formData.bw_current) : null;
     const parsedGoalWeight = formData.bw_goal ? parseInt(formData.bw_goal) : null;
     
     if (
       parsedHeight === null ||
+      parsedStartWeight === null ||
       parsedCurrentWeight === null ||
       parsedGoalWeight === null
     ) {
       console.error('One or more numeric fields are invalid.');
       return;
     }
+  
   try {
     const { data } = await createProfile({
       variables: {
         id: userId, 
         username: username,
         height: parsedHeight,
-        payMember: true, //HARDCODED FOR NOW
-        bwStart: parsedCurrentWeight,
-        bwCurrent: parsedCurrentWeight,
-        bwGoal: parsedGoalWeight, 
-        // dietary: formData.dietary, 
-        // routines: formData.routines,
-        // calendar: formData.calendar,
+        payMember: formData.payMember,
+        bw_start: parsedStartWeight,
+        bw_current: parsedCurrentWeight,
+        bw_goal: parsedGoalWeight, 
+        dietary: formData.dietary, 
+        routines: formData.routines,
+        calendar: formData.calendar,
       },
     });
   
@@ -106,69 +92,80 @@ const Questionnaire = () => {
 
   return (
     <div className="questionnaire">
-      <h2>Create Profile</h2>
-      <form onSubmit={handleSubmit} className="profile-form">
-        <div className="form-group">
-          <label htmlFor="username">Username:</label>
+      <form onSubmit={handleSubmit}>
+        <h2>Create Profile</h2>
+        <label>
+          Username:
           <input
             type="text"
-            id="username"
             name="username"
             value={formData.username}
             onChange={handleChange}
             required
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="height">Height (in cm):</label>
+        </label>
+        <label>
+          Height (in cm):
           <input
             type="number"
-            id="height"
             name="height"
             value={formData.height}
             onChange={handleChange}
             required
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="bw_current">Current Weight (in kg):</label>
+        </label>
+        <label>
+          Starting Weight (in kg):
           <input
             type="number"
-            id="bw_current"
+            name="bw_start"
+            value={formData.bw_start}
+            onChange={handleChange}
+            required
+          />
+        </label>
+        <label>
+          Current Weight (in kg):
+          <input
+            type="number"
             name="bw_current"
             value={formData.bw_current}
             onChange={handleChange}
             required
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="bw_goal">Goal Weight (in kg):</label>
+        </label>
+        <label>
+          Goal Weight (in kg):
           <input
             type="number"
-            id="bw_goal"
             name="bw_goal"
             value={formData.bw_goal}
             onChange={handleChange}
             required
           />
-        </div>
-        {/* <div className="form-group">
-          <label htmlFor="dietary">Dietary Restrictions:</label>
-          <select
-            multiple
-            id="dietary"
-            name="dietary"
-            value={formData.dietary}
+        </label>
+        <label>
+          Paid Member:
+          <input
+            type="checkbox"
+            name="payMember"
+            checked={formData.payMember}
             onChange={handleChange}
-          >
-            <option value="Paleo">Paleo</option>
-            <option value="Vegan">Vegan</option>
-            <option value="Vegetarian">Vegetarian</option>
-            <option value="Ketogenic">Ketogenic</option>
-            <option value="GlutenFree">Gluten Free</option>
+          />
+        </label>
+        <label>
+          Dietary Restrictions:
+          <select multiple name="dietary" value={formData.dietary} onChange={handleChange}>
+            {/* DIETARY OPTIONS HERE */}
           </select>
-        </div> */}
-        <button type="submit" className="submit-btn">Create Profile</button>
+        </label>
+        <label>
+          Routines:
+          <select multiple name="routines" value={formData.routines} onChange={handleChange}>
+            {/* ROUTINE OPTIONS HERE */}
+          </select>
+        </label>
+        <button type="submit">Create Profile</button>
       </form>
     </div>
   );
