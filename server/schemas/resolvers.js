@@ -31,6 +31,9 @@ const resolvers = {
     diet: async (parent, { dietId }) => {
       return Diets.findOne({ _id: dietId });
     },
+    routine: async (parent, { routineId }) => {
+      return Routines.findOne({ _id: routineId });
+    },
     workouts: async () => {
       return Workouts.find();
     },
