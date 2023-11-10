@@ -6,7 +6,6 @@ import InfoBlocks from '../components/InfoBlocks/index';
 import PricingTable from '../components/PricingTable/index';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_THOUGHTS);
 
   const [showPricingTable, setShowPricingTable] = useState(false);
 

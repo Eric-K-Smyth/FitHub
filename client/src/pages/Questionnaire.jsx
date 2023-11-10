@@ -78,7 +78,7 @@ const Questionnaire = () => {
     });
   
       console.log('Profile created!!!! Data:', data.createProfile);
-      navigate('/profile');
+      navigate('/me');
     } catch (e) {
       console.error('Error submitting form:', e);
     }

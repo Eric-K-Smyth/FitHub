@@ -9,7 +9,7 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
-
+    
     profile: async (parent, args, context) => {
       if (context.user) {
         return Profile.findOne({ username: context.user.username })
