@@ -17,6 +17,9 @@ import { Grid, GridItem, Heading, Box, Text, Divider } from '@chakra-ui/react';
 const Profile = () => {
   const { username: userParam } = useParams();
   
+  // if (!userParam) {
+  //   userParam = Auth.getProfile().authenticatedPerson.username;
+  // }
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_PROFILE, {
     variables: { username: userParam },
   });

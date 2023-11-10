@@ -21,7 +21,7 @@ const resolvers = {
             },
           });
       }
-      throw AuthenticationError("You need to be logged in!");
+      throw AuthenticationError;
     },
 
     dietary: async (parent, { username }) => {
