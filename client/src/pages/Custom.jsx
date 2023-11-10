@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { GET_WORKOUTS } from '../utils/queries';
 import WorkoutBlock from '../components/WorkoutBlock';
 // import CustomRoutine from '../components/CustomRoutine';
-import './Custom.css';
+import './Style.css';
 
 const Custom = () => {
   const { loading, error, data } = useQuery(GET_WORKOUTS);
