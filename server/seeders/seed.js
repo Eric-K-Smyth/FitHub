@@ -19,19 +19,21 @@ db.once("open", async () => {
     console.log("------ Users seeded! -------");
 
     await Profile.create(profileSeeds);
-    console.log("------ Profiles seeded! -------")
+    console.log("------ Profiles seeded! -------");
 
-    // add diets to Users 
-    for (let i = 0; i < dietarySeeds.length-3; i++) {
+    // add diets to Users
+    for (let i = 0; i < dietarySeeds.length; i++) {
       const { _id } = await Diets.create(dietarySeeds[i]);
-      await Profile.findOneAndUpdate(
-        { username: "Brian" },
-        {
-          $addToSet: {
-            dietary: _id,
-          },
-        }
-      );
+      if (i < 2) {
+        await Profile.findOneAndUpdate(
+          { username: "Brian" },
+          {
+            $addToSet: {
+              dietary: _id,
+            },
+          }
+        );
+      }
     }
     console.log("------ Diets saved on Profiles seeded! -------");
 
@@ -50,10 +52,10 @@ db.once("open", async () => {
     console.log("------ Routines saved on Profiles seeded! -------");
 
     // add the workout to the routines // workoutSeeds.lenght = 3
-    for (let j = 0; j < workoutSeeds.length; j++) {
+    for (let j = 0; j < 6; j++) {
       const { _id } = await Workouts.create(workoutSeeds[j]);
       await Routines.findOneAndUpdate(
-        { name: "A" },
+        { name: "Basic Routine" },
         {
           $push: {
             workouts: _id,
