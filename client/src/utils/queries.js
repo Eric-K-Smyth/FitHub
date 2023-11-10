@@ -22,7 +22,22 @@ export const QUERY_PROFILE = gql`
     profile {
       _id
       username
+      name
+      age
+      gender
       height
+      weight
+      fitnessGoals {
+        loseWeight
+        buildMuscle
+        improveCardio
+        increaseFlexibility
+      }
+      workoutPreference
+      dietaryRestrictions
+      dietaryDetails
+      eatingHabits
+      payMember
       bw_start
       bw_current
       bw_goal
@@ -57,18 +72,16 @@ export const QUERY_SINGLE_ROUTINE = gql`
   }
 `;
 
-// export const QUERY_ME = gql`
-//   query me {
-//     me {
-//       _id
-//       username
-//       email
-//       thoughts {
-//         _id
-//         thoughtText
-//         thoughtAuthor
-//         createdAt
-//       }
-//     }
-//   }
-// `;
+export const GET_WORKOUTS = gql`
+  query GetWorkouts {
+    workouts {
+      _id
+      name
+      category
+      instructions
+      image
+      sets
+      reps
+    }
+  }
+`;

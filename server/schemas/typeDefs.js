@@ -53,6 +53,7 @@ const typeDefs = `
     dietary(username: String): [Diets]
     diet(dietId: ID!): Diets
     me: User
+    workouts: [Workouts]
   }
 
   type Mutation {
