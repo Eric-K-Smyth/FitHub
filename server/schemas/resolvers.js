@@ -9,19 +9,8 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
-
-    profiles: async () => {
-      return Profile.find()
-        .populate("dietary")
-        .populate({
-          path: "routines",
-          populate: {
-            path: "workouts",
-          },
-        });
-    },
-
-    profile: async (parent, { username }, context) => {
+    
+    profile: async (parent, args, context) => {
       if (context.user) {
         return Profile.findOne({ username: context.user.username })
           .populate("dietary")
@@ -32,7 +21,7 @@ const resolvers = {
             },
           });
       }
-      throw AuthenticationError("You need to be logged in!");
+      throw AuthenticationError;
     },
 
     dietary: async (parent, { username }) => {

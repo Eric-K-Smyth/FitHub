@@ -6,11 +6,6 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      thoughts {
-        _id
-        thoughtText
-        createdAt
-      }
     }
   }
 `;
@@ -22,21 +17,7 @@ export const QUERY_PROFILE = gql`
     profile {
       _id
       username
-      name
-      age
-      gender
       height
-      weight
-      fitnessGoals {
-        loseWeight
-        buildMuscle
-        improveCardio
-        increaseFlexibility
-      }
-      workoutPreference
-      dietaryRestrictions
-      dietaryDetails
-      eatingHabits
       payMember
       bw_start
       bw_current
@@ -49,6 +30,24 @@ export const QUERY_PROFILE = gql`
       routines {
         _id
         name
+      }
+      calendar
+    }
+  }
+`;
+
+export const QUERY_SINGLE_ROUTINE = gql`
+  query getSingleRoutine($routineId: ID!) {
+    routines(routineId: $routineId) {
+      _id
+      name
+      workouts {
+        name
+        category
+        instructions
+        image
+        sets
+        reps
       }
     }
   }
