@@ -1,0 +1,52 @@
+.custom-routine {
+    background-color: #f5f5f5; /* Background color for the routine bar */
+    padding: 20px; /* Adjust the padding as needed */
+    border-radius: 10px; /* Rounded corners */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Add this to set position context for pseudo-element */
+  }
+  
+  .routine-workouts {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping of routine blocks */
+  }
+  
+  .routine-workout {
+    margin-right: 10px; /* Adjust the spacing between blocks */
+    border: 1px dashed #ccc; /* Dotted border for empty block outlines */
+    border-radius: 8px; /* Rounded corners for blocks */
+    width: 100px; /* Adjust the block width as needed */
+    height: 100px; /* Adjust the block height as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* Background color for each block */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Box shadow for each block */
+    position: relative; /* Add this to set position context for pseudo-element */
+  }
+  
+  .routine-workout::before {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px dashed #ccc; /* Dotted border for empty block outlines */
+    border-radius: 8px; /* Rounded corners for blocks */
+    pointer-events: none; 
+    /* Prevent the pseudo-element from blocking clicks */
+  }
+  
+  button {
+    background-color: #f5f5f5; /* Background color for the "Remove" button (optional) */
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+  

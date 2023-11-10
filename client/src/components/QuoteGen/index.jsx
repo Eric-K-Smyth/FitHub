@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Text } from '@chakra-ui/react';
 
 function QuoteComponent() {
   const [quote, setQuote] = useState('');
@@ -20,7 +21,7 @@ function QuoteComponent() {
 
         if (response.status === 200) {
           const data = await response.json();
-          setQuote(data.quote); // Update the state with the fetched quote
+          setQuote(data[0].quote); // Update the state with the fetched quote
         } else {
           const errorData = await response.text();
           setError(`Error: ${response.status} - ${errorData}`);
@@ -38,7 +39,8 @@ function QuoteComponent() {
   return (
     <div>
       {loading && <p>Loading...</p>}
-      {quote && <p>{quote}</p>}
+      {quote && <Text as='i' fontSize="1.5em" color={'gray.600'}>{quote}</Text>}
+      
       {error && <p>{error}</p>}
     </div>
   );

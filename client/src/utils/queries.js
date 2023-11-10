@@ -6,55 +6,63 @@ export const QUERY_USER = gql`
       _id
       username
       email
-      thoughts {
-        _id
-        thoughtText
-        createdAt
-      }
     }
   }
 `;
 
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-    }
-  }
-`;
+// we need all the queries from the typedef/resolvers
 
-export const QUERY_SINGLE_THOUGHT = gql`
-  query getSingleThought($thoughtId: ID!) {
-    thought(thoughtId: $thoughtId) {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
-      comments {
-        _id
-        commentText
-        commentAuthor
-        createdAt
-      }
-    }
-  }
-`;
-
-export const QUERY_ME = gql`
-  query me {
-    me {
+export const QUERY_PROFILE = gql`
+  query profile {
+    profile {
       _id
       username
-      email
-      thoughts {
+      height
+      payMember
+      bw_start
+      bw_current
+      bw_goal
+      dietary {
         _id
-        thoughtText
-        thoughtAuthor
+        name
         createdAt
       }
+      routines {
+        _id
+        name
+      }
+      calendar
+    }
+  }
+`;
+
+export const QUERY_SINGLE_ROUTINE = gql`
+  query getSingleRoutine($routineId: ID!) {
+    routines(routineId: $routineId) {
+      _id
+      name
+      workouts {
+        name
+        category
+        instructions
+        image
+        sets
+        reps
+      }
+    }
+  }
+`;
+
+export const GET_WORKOUTS = gql`
+  query GetWorkouts {
+    workouts {
+      _id
+      name
+      category
+      instructions
+      image
+      sets
+      reps
     }
   }
 `;

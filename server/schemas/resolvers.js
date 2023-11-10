@@ -1,43 +1,39 @@
-const { User, Workouts, Routines, Diets } = require("../models");
+const { User, Profile, Workouts, Routines, Diets } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 
-const resolvers = {
+const resolvers = { 
   Query: {
     users: async () => {
-      return User.find()
-        .populate("dietary")
-        .populate({
-          path: "routines",
-          populate: {
-            path: "workouts",
-          },
-        });
+      return User.find();
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate(["dietary", "routines"]);
+      return User.findOne({ username });
     },
-    me: async (parent, args, context) => {
+    
+    profile: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate([
-          "dietary",
-          "routines",
-        ]);
+        return Profile.findOne({ username: context.user.username })
+          .populate("dietary")
+          .populate({
+            path: "routines",
+            populate: {
+              path: "workouts",
+            },
+          });
       }
-      throw AuthenticationError("You need to be logged in!");
+      throw AuthenticationError;
     },
-    // User: {
-    //   dietary: async (parent) => {
-    //     return await Diets.find({ _id: { $in: parent.dietary } });
-    //   },
-    //   routines: async (parent) => {
-    //     return await Routines.find({ _id: { $in: parent.routines } }).populate('workouts');
-    //   }
-    // },
-    // Routines: {
-    //   workouts: async (parent) => {
-    //     return Workouts.find({ _id: { $in: parent.workouts } });
-    //   }
-    // }
+
+    dietary: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Diets.find(params).sort({ createdAt: -1 });
+    },
+    diet: async (parent, { dietId }) => {
+      return Diets.findOne({ _id: dietId });
+    },
+    workouts: async () => {
+      return Workouts.find();
+    },
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
@@ -58,6 +54,68 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    createProfile: async (
+      parent,
+      {
+        id,
+        username,
+        height,
+        payMember,
+        bw_start,
+        bw_current,
+        bw_goal,
+        dietary,
+        routines,
+        calendar,
+      }
+    ) => {
+      const newProfile = await Profile.create({
+        id,
+        username,
+        height,
+        payMember,
+        bw_start,
+        bw_current,
+        bw_goal,
+        dietary,
+        routines,
+        calendar,
+      });
+
+      return newProfile;
+    },
+
+    addDateToCalendar: async (parent, { username, date }) => {
+      return Profile.findOneAndUpdate(
+        { username: username },
+        { $addToSet: { calendar: date } },
+        { new: true }
+      );
+    },
+
+    createRoutine: async (parent, { name, workouts }) => {
+      const newRoutine = await Routines.create({
+        name,
+        workouts,
+      });
+      return newRoutine;
+    },
+
+    addWorkoutToRoutine: async (parent, { routineId, workoutId }) => {
+      return Routines.findOneAndUpdate(
+        { _id: routineId },
+        { $addToSet: { workouts: workoutId } },
+        { new: true }
+      );
+    },
+
+    addRoutineToProfile: async (parent, { username, routineId }) => {
+      return Profile.findOneAndUpdate(
+        { username: username },
+        { $addToSet: { routines: routineId } },
+        { new: true }
+      );
     },
   },
 };

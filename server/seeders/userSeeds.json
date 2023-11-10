@@ -2,25 +2,11 @@
   {
     "username": "Brian",
     "email": "brian@brian.com",
-    "password": "12345678",
-    "height": 34,
-    "payMember": false,
-    "bw_start": 200,
-    "bw_current": 150,
-    "bw_goal": 100,
-    "dietary": [],
-    "routines": []
+    "password": "12345678"
   },
   {
     "username": "Joly",
     "email": "joly@joly.com",
-    "password": "12345678",
-    "height": 14,
-    "payMember": true,
-    "bw_start": 100,
-    "bw_current": 120,
-    "bw_goal": 140,
-    "dietary": [],
-    "routines": []
+    "password": "12345678"
   }
 ]
