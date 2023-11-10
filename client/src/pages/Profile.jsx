@@ -88,11 +88,11 @@ const Profile = () => {
             <Text color={'gray.700'} fontWeight={600} fontSize={'sm'} textTransform={'uppercase'}>
               Suggested Meals
             </Text>
-              {/* {user.dietary &&
+              {user.dietary &&
                 user.dietary.map((diet) => (
                 <MealPlan selectedDiet={diet.name} />
                 ))
-              } */}
+              }
           </Box>
           
 
