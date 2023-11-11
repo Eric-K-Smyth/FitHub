@@ -28,21 +28,21 @@ const Weight = ({
             <StatLabel color={'gray.500'}>Start</StatLabel>
             <StatNumber color={'gray.600'}>{bw_start}</StatNumber>
             <StatHelpText>
-              lbs
+              KG
             </StatHelpText>
           </Stat>
           <Stat>
             <StatLabel color={'gray.500'}>Current</StatLabel>
             <StatNumber color={'gray.600'}>{bw_current}</StatNumber>
             <StatHelpText>
-             lbs
+             KG
             </StatHelpText>
           </Stat>
           <Stat>
             <StatLabel color={'gray.500'}>Goal</StatLabel>
             <StatNumber color={'gray.600'}>{bw_goal}</StatNumber>
             <StatHelpText>
-              lbs
+              KG
             </StatHelpText>
           </Stat>
         </StatGroup>

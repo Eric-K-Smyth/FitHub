@@ -31,9 +31,26 @@ const resolvers = {
     diet: async (parent, { dietId }) => {
       return Diets.findOne({ _id: dietId });
     },
+    routines: async (parent, { routineId }) => {
+      return Routines.findOne({ _id: routineId }).populate({
+        path: "workouts",
+      });
+    },
     workouts: async () => {
       return Workouts.find();
     },
+    workoutsByRoutine: async (_, { routineId }, context) => {
+      try {
+            const routine = await Routines.findById(routineId).populate('workouts');        
+            if (!routine) {
+              throw new Error('Routine not found');
+            }
+            return routine.workouts;
+          } catch (err) {
+            throw new Error(err);
+          }
+    },
+    
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {

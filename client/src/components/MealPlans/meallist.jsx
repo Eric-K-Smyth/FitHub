@@ -16,11 +16,11 @@ export default function MealList({ mealData, selectedDiet }) {
     
     <div>
        <Box borderWidth='1px' borderRadius='lg' overflow='hidden' p="5">
-            <Box display='flex' alignItems='baseline'>
-              <Box color='gray.500' fontWeight='semibold' letterSpacing='wide' fontSize='sm' textTransform='uppercase' ml='2'>
-              {selectedDiet} &bull; {nutrients.calories.toFixed(0)} Calories &bull; {nutrients.carbohydrates.toFixed(0)} Carbohydrates  &bull;  {nutrients.fat.toFixed(0)} Fat
-              </Box>
+          <Box display='flex' alignItems='baseline'>
+            <Box color='gray.500' fontWeight='semibold' letterSpacing='wide' fontSize='sm' textTransform='uppercase' ml='2'>
+            {selectedDiet} &bull; {nutrients.calories.toFixed(0)} Calories &bull; {nutrients.carbohydrates.toFixed(0)} Carbohydrates  &bull;  {nutrients.fat.toFixed(0)} Fat
             </Box>
+          </Box>
         </Box>
       <SimpleGrid spacing={2} templateColumns='repeat(3, 1fr)' alignItems='center'>
        
@@ -29,11 +29,6 @@ export default function MealList({ mealData, selectedDiet }) {
         })}
       </SimpleGrid>
 
-      {/* <section className="meals">
-      {filteredMeals.map((meal) => {
-          return <Meal key={meal.id} meal={meal} />;
-        })}
-      </section> */}
     </div>
   );
 }

@@ -46,7 +46,7 @@ const Profile = () => {
       </h4>
     );
   }
-
+  
   return (
     <div>
        <Grid templateColumns="repeat(6,1fr)">
@@ -85,14 +85,14 @@ const Profile = () => {
             />
           </Box>
           <Box>
-            <Text color={'gray.700'} fontWeight={600} fontSize={'sm'} textTransform={'uppercase'}>
+            <Text color={'gray.600'} fontWeight={600} fontSize={'sm'} textTransform={'uppercase'} mb="2">
               Suggested Meals
             </Text>
-              {user.dietary &&
+              {/* {user.dietary &&
                 user.dietary.map((diet) => (
                 <MealPlan selectedDiet={diet.name} />
                 ))
-              }
+              } */}
           </Box>
           
 

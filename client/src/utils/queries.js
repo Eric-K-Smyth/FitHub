@@ -36,8 +36,8 @@ export const QUERY_PROFILE = gql`
   }
 `;
 
-export const QUERY_SINGLE_ROUTINE = gql`
-  query getSingleRoutine($routineId: ID!) {
+export const QUERY_ROUTINE = gql`
+  query getRoutine($routineId: ID!) {
     routines(routineId: $routineId) {
       _id
       name
@@ -49,6 +49,20 @@ export const QUERY_SINGLE_ROUTINE = gql`
         sets
         reps
       }
+    }
+  }
+`;
+
+export const GET_WORKOUTS_BY_ROUTINE = gql`
+  query GetWorkoutsByRoutine($routineId: ID!) {
+    workoutsByRoutine(routineId: $routineId) {
+      _id
+      name
+      category
+      instructions
+      image
+      sets
+      reps
     }
   }
 `;
