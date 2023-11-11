@@ -25,23 +25,22 @@ export const ADD_USER = gql`
 `;
 
 export const CREATE_PROFILE = gql`
-mutation Mutation($id: ID!, $height: Int!, $bwStart: Int!, $username: String, $payMember: Boolean, $dietary: [String], $routines: [String], $calendar: [String], $bwCurrent: Int, $bwGoal: Int!) {
-  createProfile(_id: $id, height: $height, bw_start: $bwStart, username: $username, payMember: $payMember, dietary: $dietary, routines: $routines, calendar: $calendar, bw_current: $bwCurrent, bw_goal: $bwGoal) {
+mutation Mutation($id: ID!, $height: Int!, $bwStart: Int!, $bwGoal: Int!, $username: String, $payMember: Boolean, $bwCurrent: Int, $dietary: String, $routines: [String], $calendar: [String]) {
+  createProfile(_id: $id, height: $height, bw_start: $bwStart, bw_goal: $bwGoal, username: $username, payMember: $payMember, bw_current: $bwCurrent, dietary: $dietary, routines: $routines, calendar: $calendar) {
     _id
-    bw_current
-    bw_goal
-    bw_start
-    calendar
-    dietary {
-      _id
-    }
+    username
     height
     payMember
+    bw_start
+    bw_current
+    bw_goal
+    dietary
     routines {
       _id
     }
-    username
+    calendar
   }
-}`;
+}
+`;
 
 // we need all the mutations from the typedef/resolvers
