@@ -7,7 +7,7 @@ function MealPlan({ selectedDiet }) {
   
   useEffect(() => {
     fetch(
-      `https://api.spoonacular.com/mealplanner/generate?apiKey=48b7736632544eb59a2ee7b4b3001af3&timeFrame=day&diet={selectedDiet}`
+      `https://api.spoonacular.com/mealplanner/generate?apiKey=48b7736632544eb59a2ee7b4b3001af3&timeFrame=day&diet=${selectedDiet}`
     )
       .then((response) => response.json())
       .then((data) => {

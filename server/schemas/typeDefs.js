@@ -19,15 +19,9 @@ const typeDefs = `
     bw_start: Int
     bw_current: Int
     bw_goal: Int
-    dietary: [Diets]
+    dietary: String
     routines: [Routines]
     calendar: [String]
-  }
-
-  type Diets {
-    _id: ID
-    name: String!
-    createdAt: String
   }
 
   type Routines {
@@ -50,8 +44,6 @@ const typeDefs = `
     users: [User]
     user(username: String!): User
     profile: Profile
-    dietary(username: String): [Diets]
-    diet(dietId: ID!): Diets
     routines(routineId: ID!): Routines
     workouts: [Workouts]
     workoutsByRoutine(routineId: ID!): [Workouts]
@@ -60,7 +52,7 @@ const typeDefs = `
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    createProfile(_id: ID!, username: String, height: Int!, payMember: Boolean, bw_start: Int!, bw_current: Int, bw_goal: Int!, dietary: [String], routines: [String], calendar: [String]): Profile
+    createProfile(_id: ID!, username: String, height: Int!, payMember: Boolean, bw_start: Int!, bw_current: Int, bw_goal: Int!, dietary: String, routines: [String], calendar: [String]): Profile
     addDateToCalendar(username: String!, date: String!): Profile
     createRoutine(name: String!): Routines
     addWorkoutToRoutine(workoutId: ID!, routineId: ID!): Routines

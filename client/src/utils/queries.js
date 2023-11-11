@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_USER = gql`
   query user($username: String!) {
@@ -10,8 +10,6 @@ export const QUERY_USER = gql`
   }
 `;
 
-// we need all the queries from the typedef/resolvers
-
 export const QUERY_PROFILE = gql`
   query profile {
     profile {
@@ -22,11 +20,7 @@ export const QUERY_PROFILE = gql`
       bw_start
       bw_current
       bw_goal
-      dietary {
-        _id
-        name
-        createdAt
-      }
+      dietary
       routines {
         _id
         name

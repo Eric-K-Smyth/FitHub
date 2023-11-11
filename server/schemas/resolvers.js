@@ -1,7 +1,7 @@
-const { User, Profile, Workouts, Routines, Diets } = require("../models");
+const { User, Profile, Workouts, Routines} = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 
-const resolvers = { 
+const resolvers = {
   Query: {
     users: async () => {
       return User.find();
@@ -9,11 +9,9 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
-    
     profile: async (parent, args, context) => {
       if (context.user) {
         return Profile.findOne({ username: context.user.username })
-          .populate("dietary")
           .populate({
             path: "routines",
             populate: {
@@ -22,14 +20,6 @@ const resolvers = {
           });
       }
       throw AuthenticationError;
-    },
-
-    dietary: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Diets.find(params).sort({ createdAt: -1 });
-    },
-    diet: async (parent, { dietId }) => {
-      return Diets.findOne({ _id: dietId });
     },
     routines: async (parent, { routineId }) => {
       return Routines.findOne({ _id: routineId }).populate({
@@ -41,16 +31,15 @@ const resolvers = {
     },
     workoutsByRoutine: async (_, { routineId }, context) => {
       try {
-            const routine = await Routines.findById(routineId).populate('workouts');        
-            if (!routine) {
-              throw new Error('Routine not found');
-            }
-            return routine.workouts;
-          } catch (err) {
-            throw new Error(err);
-          }
+        const routine = await Routines.findById(routineId).populate("workouts");
+        if (!routine) {
+          throw new Error("Routine not found");
+        }
+        return routine.workouts;
+      } catch (err) {
+        throw new Error(err);
+      }
     },
-    
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {

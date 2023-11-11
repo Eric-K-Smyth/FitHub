@@ -6,7 +6,7 @@
     "bw_start": 200,
     "bw_current": 150,
     "bw_goal": 100,
-    "dietary": [],
+    "dietary": "",
     "routines": [],
     "calendar": ["2023-10-01", "2023-10-03"]
   },
@@ -17,7 +17,7 @@
     "bw_start": 100,
     "bw_current": 120,
     "bw_goal": 140,
-    "dietary": [],
+    "dietary": "",
     "routines": [],
     "calendar": ["2023-11-01", "2023-11-03"]
   }
