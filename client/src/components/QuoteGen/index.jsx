@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text } from '@chakra-ui/react';
+import { Text, Divider, Box } from '@chakra-ui/react';
 
 function QuoteComponent() {
   const [quote, setQuote] = useState('');
@@ -37,12 +37,15 @@ function QuoteComponent() {
   }, []);
 
   return (
-    <div>
+    <Box boxShadow="base" background="white" padding="10px" fontSize="sm">
       {loading && <p>Loading...</p>}
-      {quote && <Text as='i' fontSize="1.5em" color={'gray.600'}>{quote}</Text>}
-      
+      <Divider color={'gray.700'} borderBottomWidth='2px' opacity='1' mt='5px' mb='10px'></Divider>
+      {quote && 
+        <blockquote background='white'><Text as='i' fontSize="1.5em" color={'gray.600'}>{quote}</Text></blockquote>
+      }
+       <Divider color={'gray.700'} borderBottomWidth="2px" opacity="1" mt="10px" mb="5px"></Divider>
       {error && <p>{error}</p>}
-    </div>
+    </Box>
   );
 }
 

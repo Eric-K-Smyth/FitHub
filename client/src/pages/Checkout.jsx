@@ -2,7 +2,7 @@ import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 
 import "../assets/images/sign-pic.jpg";
-import "../components/Checkout/Checkout.css";
+//import "../components/Checkout/Checkout.css";
 
 let stripePromise;
 

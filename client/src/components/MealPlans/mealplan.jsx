@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import MealList from "./meallist";
-import { Text } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 
-function MealPlan({ selectedDiet }) {
+function MealPlan({ selectedDiet, title }) {
   const [mealData, setMealData] = useState(null);
   
   useEffect(() => {
@@ -19,9 +19,14 @@ function MealPlan({ selectedDiet }) {
   }, []);
 
   return (
-    <div>
-      {mealData && <MealList mealData={mealData} selectedDiet={selectedDiet} />}
-    </div>
+    
+      <Box mt='10px' mb='10px'>
+        <Text align="left" color={'gray.700'} fontWeight={600} fontSize={'lg'}  mb="2">
+            {title}
+        </Text>
+        {mealData && <MealList mealData={mealData} selectedDiet={selectedDiet} />}
+      </Box>
+    
   );
 }
 

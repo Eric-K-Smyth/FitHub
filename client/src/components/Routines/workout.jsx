@@ -5,14 +5,16 @@ import { Box, Button,   Modal,
   ModalHeader,
   ModalFooter,
   ModalBody,
-  ModalCloseButton, useDisclosure, Badge, Image, Heading, Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react';
+  ModalCloseButton,
+  Text,
+  useDisclosure, HStack, Badge, Image, Heading, Card, CardHeader, CardBody, CardFooter } from '@chakra-ui/react';
 
 const Workout = ({
   workout
 }) => {
 
   const preview = (data) => {
-    const previewLength = 75;
+    const previewLength = 70;
     if (data.length > previewLength) {
         return data.substring(0, previewLength) + '...';
     } else {
@@ -20,7 +22,7 @@ const Workout = ({
     }
   };
 
-  function ReadMore(title, data) {
+  function ReadMore(data) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
       <>
@@ -29,15 +31,16 @@ const Workout = ({
         <Modal isOpen={isOpen} onClose={onClose} isCentered>
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader>{title}</ModalHeader>
+            <ModalHeader>{data.name}</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-              {data}
+              {data.instructions}
             </ModalBody>
+            <ModalFooter>
+              
+              <Text fontWeight='semibold' letterSpacing='wide' fontSize='xs' textTransform='uppercase'>Sets: {data.sets} &bull; Reps: {data.reps} </Text>
+            </ModalFooter>
           </ModalContent>
-          <ModalFooter>
-            <Button onClick={onClose}>Close</Button>
-          </ModalFooter>
         </Modal>
       </>
     )
@@ -54,13 +57,13 @@ const Workout = ({
         </Box>
         <Box display='flex' mt='2' alignItems='center' justifyContent='space-evenly' color='whiteAlpha.800' fontWeight='semibold' letterSpacing='wide' fontSize='xs' textTransform='uppercase'>
           <Box as='span' ml='2'>
-            Sets: {workout.sets} minutes
+            Sets: {workout.sets} minutes 
           </Box>
           <Box as='span' mr='2'>
            Reps: {workout.reps}
           </Box>
           <Box as='span'>
-          {ReadMore(workout.name, workout.instructions)}
+            {ReadMore(workout)}
           </Box>
         </Box>
       </Box>

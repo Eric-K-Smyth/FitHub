@@ -10,6 +10,7 @@ import Profile from './pages/Profile';
 import Error from './pages/Error';
 import Questionnaire from './pages/Questionnaire';
 import Custom from './pages/Custom';
+import Checkout from './pages/Checkout';
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,9 @@ const router = createBrowserRouter([
       }, {
         path: '/custom',
         element: <Custom />
+      }, {
+        path: '/donate',
+        element: <Checkout />
       }
     ]
   }

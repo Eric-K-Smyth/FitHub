@@ -1,8 +1,6 @@
-import { Navigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
-//import ThoughtForm from '../components/ThoughtForm';
-// import ThoughtList from '../components/ThoughtList';
 import Weight from '../components/Weight';
 import Height from '../components/Weight/height';
 import Routines from '../components/Routines';
@@ -12,11 +10,11 @@ import MealPlan from '../components/MealPlans/mealplan';
 import { QUERY_USER, QUERY_PROFILE } from '../utils/queries';
 
 import Auth from '../utils/auth';
-import { Grid, GridItem, Heading, Box, Text, Divider } from '@chakra-ui/react';
+import { Grid, GridItem, Heading, Box, Button, Text, Divider, HStack, VStack } from '@chakra-ui/react';
 
 const Profile = () => {
   const { username: userParam } = useParams();
-  
+  const navigate = useNavigate();
   // if (!userParam) {
   //   userParam = Auth.getProfile().authenticatedPerson.username;
   // }
@@ -47,15 +45,25 @@ const Profile = () => {
     );
   }
   
+  const donatePage = () => {
+      navigate('/donate');
+  };
   return (
     <div>
-       <Grid templateColumns="repeat(6,1fr)">
-        <GridItem as="aside" colSpan="1" minHeight="100hv">
-            <Heading fontSize={'2xl'} fontWeight={500} fontFamily={'body'} textAlign={'left'}>
-              {Auth.getProfile().authenticatedPerson.username}
+       <Grid templateColumns="repeat(9,1fr)">
+        <GridItem as="aside" colSpan="2" minHeight="100hv" padding='15px'>
+          <VStack align="left">
+            <Heading fontSize={'2xl'} fontWeight={500} fontFamily={'body'}>
+              Welcome {Auth.getProfile().authenticatedPerson.username}
             </Heading>
+            <Button colorScheme='blue' onClick={donatePage} mb='10px'>Donate here</Button>
+            
+            <QuoteComponent></QuoteComponent>
+            
+          </VStack>
+             
         </GridItem>
-        <GridItem as="main" colSpan="5">
+        <GridItem as="main" colSpan="7" padding='15px'>
           <Grid templateColumns="repeat(4,1fr)">
             <GridItem colSpan="1">
                 <Height
@@ -73,24 +81,16 @@ const Profile = () => {
               />
             </GridItem>
           </Grid>
-          <Box p="10px">
-            <Divider color={'gray.700'} borderBottomWidth="2px" opacity="1" mt="5px" mb="10px"></Divider>
-            <QuoteComponent></QuoteComponent>
-            <Divider color={'gray.700'} borderBottomWidth="2px" opacity="1" mt="10px" mb="5px"></Divider>
-          </Box>
           
           <Routines
               title={`Routines`}
               routines= {user.routines}
           />
-          <Box>
-            <Text color={'gray.600'} fontWeight={600} fontSize={'sm'} textTransform={'uppercase'} mb="2">
-              Suggested Meals
-            </Text>
-                <MealPlan selectedDiet={user.dietary} />
-          </Box>
           
-
+          {/* <MealPlan 
+            title= {'Suggested Meals'}
+            selectedDiet={user.dietary} /> */}
+          
         </GridItem>
         
        </Grid>

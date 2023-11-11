@@ -62,4 +62,16 @@
 .submit-btn:hover {
   background-color: #0056b3;
 }
+
+blockquote::before {
+  content: open-quote;
+  font-size: 5em;
+  line-height: 0.1em;
+  vertical-align: -0.4em;
+  margin-right: 0.05em;
+}
+
+blockquote {
+  quotes: "\2036""\201D";
   
+}
