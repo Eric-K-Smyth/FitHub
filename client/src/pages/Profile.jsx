@@ -87,9 +87,9 @@ const Profile = () => {
               routines= {user.routines}
           />
           
-          {/* <MealPlan 
+          { <MealPlan 
             title= {'Suggested Meals'}
-            selectedDiet={user.dietary} /> */}
+            selectedDiet={user.dietary} /> }
           
         </GridItem>
         
