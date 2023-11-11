@@ -11,19 +11,20 @@ const Routines = ({
   }
   return (
     <div>
-      <Text color={'gray.600'} fontWeight={600} fontSize={'sm'} textTransform={'uppercase'} mb="2">
-          {title}
-      </Text>
-      {routines &&
-        routines.map((routine) => (
-         
-          <Routine
-            key = {routine.id}
-            routineId = {routine._id}
-            name = {routine.name}
-          />
-          
-        ))}
+      <Box mt='10px' mb='10px'>
+        <Text align="left" color={'gray.700'} fontWeight={600} fontSize={'lg'}  mb="2">
+            {title}
+        </Text>
+        {routines &&
+          routines.map((routine) => (
+            <Routine
+              key = {routine._id}
+              routineId = {routine._id}
+              name = {routine.name}
+            />
+            
+          ))}
+        </Box>
     </div>
   );
 };

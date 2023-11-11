@@ -17,16 +17,16 @@ const Height = ({
 
   return (
     <div>
-       <Box align={'center'}>
-          <Text color={'gray.600'} fontWeight={600} fontSize={'sm'} textTransform={'uppercase'} mb="2">
+       <Box align={'center'} boxShadow="base" background="white">
+          <Text color={'gray.600'} fontWeight={600} fontSize={'sm'} textTransform={'uppercase'} pt="2" mb="2">
              {title} 
           </Text>
-        <StatGroup border='1px' borderColor='gray.400' border-right='0px'>
-          <Stat pt='3'>
+        <StatGroup>
+          <Stat>
             <StatLabel color={'gray.500'}>Overall</StatLabel>
             <StatNumber color={'gray.600'}>{height}</StatNumber>
             <StatHelpText>
-              cm
+              CM
             </StatHelpText>
           </Stat>
         </StatGroup>

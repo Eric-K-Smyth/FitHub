@@ -78,12 +78,11 @@ const Profile = () => {
             <QuoteComponent></QuoteComponent>
             <Divider color={'gray.700'} borderBottomWidth="2px" opacity="1" mt="10px" mb="5px"></Divider>
           </Box>
-          <Box mt='10px' mb='10px'>
-            <Routines
-                title={`Routines`}
-                routines= {user.routines}
-            />
-          </Box>
+          
+          <Routines
+              title={`Routines`}
+              routines= {user.routines}
+          />
           <Box>
             <Text color={'gray.600'} fontWeight={600} fontSize={'sm'} textTransform={'uppercase'} mb="2">
               Suggested Meals

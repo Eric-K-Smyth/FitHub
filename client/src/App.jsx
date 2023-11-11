@@ -1,4 +1,4 @@
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import {
   ApolloClient,
   InMemoryCache,
@@ -35,9 +35,20 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const theme = extendTheme({
+  styles: {
+    global: {
+      // styles for the `body`
+      body: {
+        bg: 'gray.50'
+      },
+    },
+  },
+})
+
 function App() {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <ApolloProvider client={client}>
         <div className="flex-column justify-flex-start min-100-vh">
           <Header />
