@@ -26,12 +26,9 @@ const profileSchema = new Schema({
     type: Number,
     required: true,
   },
-  dietary: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Diets",
-    },
-  ],
+  dietary: {
+    type: String,
+  },
   routines: [
     {
       type: Schema.Types.ObjectId,
