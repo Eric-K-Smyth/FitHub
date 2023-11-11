@@ -1,20 +1,18 @@
 import { Link } from 'react-router-dom';
 import { Box, Text, SimpleGrid } from '@chakra-ui/react';
 import { useQuery } from '@apollo/client';
+import Workout from './workout';
 
-import { QUERY_ROUTINE } from '../../utils/queries';
+import { GET_WORKOUTS_BY_ROUTINE } from '../../utils/queries';
 
-const Routine = ({
-  id,
-  name
-}) => {
+const Routine = ({ routineId, name }) => {
   
-  const { loading, data } = useQuery(QUERY_ROUTINE, {
-    variables: { routineId: id },
+  const { loading, data } = useQuery(GET_WORKOUTS_BY_ROUTINE, {
+    variables: { routineId },
   });
 
-  const routine = data?.routine || {};
-  //console.log(routine);
+  const workouts = data || [];
+  console.log(workouts);   
   return (
     <div>
       <Box borderWidth='1px' borderRadius='lg' overflow='hidden' p='5' mb='5'>
@@ -24,6 +22,14 @@ const Routine = ({
           </Box>
         </Box>
       </Box>
+
+      <SimpleGrid spacing={2} templateColumns='repeat(3, 1fr)' alignItems='center'>
+       
+        {/* {workouts.map((workoutdata) => {
+           <Workout key={workoutdata.id} workout={workoutdata} />;
+        })} */}
+      </SimpleGrid>
+
     </div>
   );
 };

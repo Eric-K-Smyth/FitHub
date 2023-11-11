@@ -52,8 +52,9 @@ const typeDefs = `
     profile: Profile
     dietary(username: String): [Diets]
     diet(dietId: ID!): Diets
-    routine(routineId: ID!): Routines
+    routines(routineId: ID!): Routines
     workouts: [Workouts]
+    workoutsByRoutine(routineId: ID!): [Workouts]
   }
 
   type Mutation {

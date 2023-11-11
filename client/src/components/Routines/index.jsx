@@ -9,7 +9,6 @@ const Routines = ({
   if (!routines.length) {
     return <h3>No Routines Yet</h3>;
   }
- // console.log(routines);
   return (
     <div>
       <Text color={'gray.600'} fontWeight={600} fontSize={'sm'} textTransform={'uppercase'} mb="2">
@@ -17,10 +16,13 @@ const Routines = ({
       </Text>
       {routines &&
         routines.map((routine) => (
+         
           <Routine
-            id = {routine._id}
+            key = {routine.id}
+            routineId = {routine._id}
             name = {routine.name}
           />
+          
         ))}
     </div>
   );

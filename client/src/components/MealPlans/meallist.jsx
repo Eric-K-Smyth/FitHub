@@ -29,11 +29,6 @@ export default function MealList({ mealData, selectedDiet }) {
         })}
       </SimpleGrid>
 
-      {/* <section className="meals">
-      {filteredMeals.map((meal) => {
-          return <Meal key={meal.id} meal={meal} />;
-        })}
-      </section> */}
     </div>
   );
 }
