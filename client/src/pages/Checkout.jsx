@@ -2,7 +2,7 @@ import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 
 import "../assets/images/sign-pic.jpg";
-//import "../components/Checkout/Checkout.css";
+import "../components/Checkout/Checkout.css";
 
 let stripePromise;
 
@@ -25,7 +25,7 @@ const Checkout = () => {
   const checkoutOptions = {
     lineItems: [item],
     mode: "subscription",
-    successUrl: `${window.location.origin}/success`,
+    successUrl: `${window.location.origin}/me`,
     cancelUrl: `${window.location.origin}/cancel`
   };
 
@@ -47,7 +47,6 @@ const Checkout = () => {
     <div className="checkout">
       <h1>FitHub</h1>
       <p className="checkout-title">Contribution conformation</p>
-      <img src="../assets/images/sign-pic.jpg" alt="motivational picture"></img>
       <h1 className="checkout-price">$3.99/month</h1>
       <p className="checkout-description">
       By clicking Accept below, you acknowledge that you will be making a recurring contribution of $3.99, plus any applicable taxes, to FitHub until you choose to cancel.
