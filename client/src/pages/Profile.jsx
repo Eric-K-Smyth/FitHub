@@ -142,9 +142,9 @@ const Profile = () => {
           />
           <Button colorScheme='blue' onClick={onOpen}>Create Routine</Button>
           
-          {/* { <MealPlan 
+          { <MealPlan 
             title= {'Suggested Meals'}
-            selectedDiet={user.dietary} /> } */}
+            selectedDiet={user.dietary} /> }
           
         </GridItem>
         
