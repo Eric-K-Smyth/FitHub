@@ -47,6 +47,14 @@ export const QUERY_ROUTINE = gql`
   }
 `;
 
+export const GET_CUSTOME_ROUTINEID = gql`
+  query CustomeRoutine($routineName: String) {
+    customeRoutine(routineName: $routineName) {
+      _id
+    }
+  }
+`;
+
 export const GET_WORKOUTS_BY_ROUTINE = gql`
   query GetWorkoutsByRoutine($routineId: ID!) {
     workoutsByRoutine(routineId: $routineId) {

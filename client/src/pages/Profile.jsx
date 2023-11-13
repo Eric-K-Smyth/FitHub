@@ -48,6 +48,8 @@ const Profile = () => {
   const donatePage = () => {
       navigate('/donate');
   };
+
+
   return (
     <div>
        <Grid templateColumns="repeat(9,1fr)">
@@ -87,9 +89,9 @@ const Profile = () => {
               routines= {user.routines}
           />
           
-          { <MealPlan 
+          {/* { <MealPlan 
             title= {'Suggested Meals'}
-            selectedDiet={user.dietary} /> }
+            selectedDiet={user.dietary} /> } */}
           
         </GridItem>
         

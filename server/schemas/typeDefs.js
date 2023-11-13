@@ -44,6 +44,7 @@ const typeDefs = `
     users: [User]
     user(username: String!): User
     profile: Profile
+    customeRoutine(routineName: String): Routines
     routines(routineId: ID!): Routines
     workouts: [Workouts]
     workoutsByRoutine(routineId: ID!): [Workouts]

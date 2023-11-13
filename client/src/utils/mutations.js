@@ -43,4 +43,15 @@ mutation Mutation($id: ID!, $height: Int!, $bwStart: Int!, $bwGoal: Int!, $usern
 }
 `;
 
-// we need all the mutations from the typedef/resolvers
+export const ADD_WORKOUT_TO_ROUTINE = gql`
+mutation AddWorkoutToRoutine($workoutId: ID!, $routineId: ID!) {
+  addWorkoutToRoutine(workoutId: $workoutId, routineId: $routineId) {
+    name
+    workouts {
+      _id
+    }
+  }
+}
+`;
+
+// we need all the mutations to add workouts from the routines
