@@ -4,6 +4,7 @@ import { useMutation } from '@apollo/client';
 import { CREATE_PROFILE } from '../utils/mutations';
 import Auth from '../utils/auth';
 import './Style.css';
+import { Input, FormControl, FormLabel } from "@chakra-ui/react";
 
 
 const Questionnaire = () => {
@@ -83,19 +84,9 @@ const Questionnaire = () => {
 
   return (
     <div className="questionnaire">
-      <h2>Create Profile</h2>
+      <h4>Welcome {formData.username}!</h4>
       <form onSubmit={handleSubmit} className="profile-form">
-        <div className="form-group">
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <h3>Fill the form to create your profile</h3>
         <div className="form-group">
           <label htmlFor="height">Height (in cm):</label>
           <input

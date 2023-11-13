@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
@@ -25,22 +25,70 @@ export const ADD_USER = gql`
 `;
 
 export const CREATE_PROFILE = gql`
-mutation Mutation($id: ID!, $height: Int!, $bwStart: Int!, $bwGoal: Int!, $username: String, $payMember: Boolean, $bwCurrent: Int, $dietary: String, $routines: [String], $calendar: [String]) {
-  createProfile(_id: $id, height: $height, bw_start: $bwStart, bw_goal: $bwGoal, username: $username, payMember: $payMember, bw_current: $bwCurrent, dietary: $dietary, routines: $routines, calendar: $calendar) {
-    _id
-    username
-    height
-    payMember
-    bw_start
-    bw_current
-    bw_goal
-    dietary
-    routines {
+  mutation Mutation(
+    $id: ID!
+    $height: Int!
+    $bwStart: Int!
+    $bwGoal: Int!
+    $username: String
+    $payMember: Boolean
+    $bwCurrent: Int
+    $dietary: String
+    $routines: [String]
+    $calendar: [String]
+  ) {
+    createProfile(
+      _id: $id
+      height: $height
+      bw_start: $bwStart
+      bw_goal: $bwGoal
+      username: $username
+      payMember: $payMember
+      bw_current: $bwCurrent
+      dietary: $dietary
+      routines: $routines
+      calendar: $calendar
+    ) {
+      _id
+      username
+      height
+      payMember
+      bw_start
+      bw_current
+      bw_goal
+      dietary
+      routines {
+        _id
+      }
+      calendar
+    }
+  }
+`;
+
+export const CREATE_ROUTINE = gql`
+  mutation CreateRoutine($name: String!) {
+    createRoutine(name: $name) {
       _id
     }
-    calendar
+  }
+`;
+
+export const ADD_WORKOUT_TO_ROUTINE = gql`
+  mutation AddWorkoutToRoutine($workoutId: ID!, $routineId: ID!) {
+    addWorkoutToRoutine(workoutId: $workoutId, routineId: $routineId) {
+      name
+      workouts {
+        _id
+      }
+    }
+  }
+`;
+
+export const ADD_ROUTINE_TO_PROFILE = gql`
+mutation Mutation($username: String!, $routineId: ID!) {
+  addRoutineToProfile(username: $username, routineId: $routineId) {
+    username
   }
 }
 `;
-
-// we need all the mutations from the typedef/resolvers
+// we need all the mutations to add workouts from the routines

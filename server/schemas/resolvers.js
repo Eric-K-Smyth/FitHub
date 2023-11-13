@@ -1,4 +1,4 @@
-const { User, Profile, Workouts, Routines} = require("../models");
+const { User, Profile, Workouts, Routines } = require("../models");
 const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
@@ -11,18 +11,22 @@ const resolvers = {
     },
     profile: async (parent, args, context) => {
       if (context.user) {
-        return Profile.findOne({ username: context.user.username })
-          .populate({
-            path: "routines",
-            populate: {
-              path: "workouts",
-            },
-          });
+        return Profile.findOne({ username: context.user.username }).populate({
+          path: "routines",
+          populate: {
+            path: "workouts",
+          },
+        });
       }
       throw AuthenticationError;
     },
     routines: async (parent, { routineId }) => {
       return Routines.findOne({ _id: routineId }).populate({
+        path: "workouts",
+      });
+    },
+    customeRoutine: async (parent, { routineName }) => {
+      return Routines.findOne({ name: routineName }).populate({
         path: "workouts",
       });
     },

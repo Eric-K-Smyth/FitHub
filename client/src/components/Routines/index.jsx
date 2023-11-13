@@ -21,7 +21,6 @@ const Routines = ({
             routineId = {routine._id}
             name = {routine.name}
           />
-          
         ))}
       </Box>
   );

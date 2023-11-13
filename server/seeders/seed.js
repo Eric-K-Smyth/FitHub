@@ -33,17 +33,19 @@ db.once("open", async () => {
     }
     console.log("------ Routines saved on Profiles seeded! -------");
 
-    // add the workout to the routines // workoutSeeds.lenght = 3
-    for (let j = 0; j < 6; j++) {
+    // add the workout to the routines
+    for (let j = 0; j < workoutSeeds.length; j++) {
       const { _id } = await Workouts.create(workoutSeeds[j]);
-      await Routines.findOneAndUpdate(
-        { name: "Basic Routine" },
-        {
-          $push: {
-            workouts: _id,
-          },
-        }
-      );
+      if (j < 3) {
+        await Routines.findOneAndUpdate(
+          { name: "Basic Routine" },
+          {
+            $push: {
+              workouts: _id,
+            },
+          }
+        );
+      }
     }
 
     console.log("------ Workout saved on Routines seeded! -------");
