@@ -17,6 +17,9 @@ When you sign up you will be greeted with a questionair. The answers will help t
 When you want a meal plan, be sure to specify any diertary restrictions! 
 Log if you have done your workouts using the calendar.
 
+![fithub](https://github.com/Eric-K-Smyth/FitHub/assets/130538145/6fe5e2b8-527b-410d-9ef9-a3a794054df2)
+
+
 ## Credits
 
 -Eric Smyth https://github.com/Eric-K-Smyth
