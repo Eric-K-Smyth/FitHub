@@ -16,10 +16,10 @@ const Home = () => {
   return (
     <main className="main-container">
       <section className="info-section p-5 mb-3">
-        <p className='p-5'>We tailor routines to align with your fitness goals. Explore advanced personalization with FitHub Premium.</p>
+        <p className='p-5'>We tailor routines to align with your fitness goals. Help us shape the future of fitness by making a donation today</p>
         
         <button onClick={handlePricingTableToggle} className="btn btn-outline-black">
-        {showPricingTable ? "Hide Premium Features" : "Learn more about Premium features"}
+        {showPricingTable ? "Hide Features" : "Learn more about our features"}
         </button>
         
         {showPricingTable && <PricingTable />}
