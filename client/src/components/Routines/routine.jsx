@@ -20,6 +20,9 @@ const Routine = ({ routineId, name }) => {
   const workouts = allWorkouts.slice(0, Math.min(allWorkouts.length, 6));
 
   const customePage = () => {
+    localStorage.removeItem('empty_routineId');
+    localStorage.removeItem('saved_workouts');
+    localStorage.setItem('empty_routineId', JSON.stringify(routineId));
     navigate('/custom');
 };
 

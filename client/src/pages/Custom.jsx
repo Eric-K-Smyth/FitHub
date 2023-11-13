@@ -11,15 +11,16 @@ const Custom = () => {
   // create state to hold saved routineId value
 const [ routineId, setRoutineId] = useState({});
 
-const { data: data_customeRoutineId } = useQuery(GET_CUSTOME_ROUTINEID,{
-  variables: { routineName: "Custom Routine" }
-});
+// const { data: data_customeRoutineId } = useQuery(GET_CUSTOME_ROUTINEID,{
+//   variables: { routineName: "Custom Routine" }
+// });
+const data_customeRoutineId = JSON.parse(localStorage.getItem('empty_routineId'));
 
 useEffect(() => {
   // Only update the state if data_customRoutineId has changed
   if (data_customeRoutineId && data_customeRoutineId !== routineId) {
-    setRoutineId(data_customeRoutineId.customeRoutine._id);
-    console.log(`CustomRoutine Id: ${data_customeRoutineId.customeRoutine._id}`);
+    setRoutineId(data_customeRoutineId);
+    console.log(`CustomRoutine Id: ${data_customeRoutineId}`);
   }
 }, [data_customeRoutineId]);
 

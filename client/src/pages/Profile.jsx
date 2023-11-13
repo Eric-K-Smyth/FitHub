@@ -1,6 +1,6 @@
 import { useNavigate, useParams, Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-
+import { useQuery, useMutation } from '@apollo/client';
+import { useState } from 'react';
 import Weight from '../components/Weight';
 import Height from '../components/Weight/height';
 import Routines from '../components/Routines';
@@ -8,9 +8,16 @@ import QuoteComponent from '../components/QuoteGen';
 import MealPlan from '../components/MealPlans/mealplan';
 
 import { QUERY_USER, QUERY_PROFILE } from '../utils/queries';
+import { CREATE_ROUTINE, ADD_ROUTINE_TO_PROFILE } from '../utils/mutations';
 
 import Auth from '../utils/auth';
-import { Grid, GridItem, Heading, Box, Button, Text, Divider, HStack, VStack } from '@chakra-ui/react';
+import { Grid, GridItem, Heading, Box, Button, Text, Divider, HStack, VStack,Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton, useDisclosure} from '@chakra-ui/react';
 
 const Profile = () => {
   const { username: userParam } = useParams();
@@ -22,6 +29,14 @@ const Profile = () => {
     variables: { username: userParam },
   });
 
+  const [createRoutine] = useMutation(CREATE_ROUTINE);
+  const [addRoutine] = useMutation(ADD_ROUTINE_TO_PROFILE);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+    //initialize new Routine FormState
+    const [formData, setFormData] = useState({
+      name: ''
+    });
 
   const user = data?.profile || data?.user || {};
   if (
@@ -46,9 +61,46 @@ const Profile = () => {
   }
   
   const donatePage = () => {
+    console.log(user.payMember);
       navigate('/donate');
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log('pushing form create routine as:');
+    console.log(formData);
+    try {
+      const { data } = await createRoutine({
+        variables: {
+          ...formData
+        },
+      });
+    
+        console.log('Routine created. Data:', data.createRoutine);  
+
+        await addRoutine({
+          variables:{
+            username: Auth.getProfile().authenticatedPerson.username,
+            routineId: data.createRoutine._id
+          }
+        });
+
+        localStorage.removeItem('empty_routineId');
+        localStorage.removeItem('saved_workouts');
+        localStorage.setItem('empty_routineId', JSON.stringify(data.createRoutine._id));
+        navigate('/custom');
+      } catch (e) {
+        console.error('Error submitting form:', e);
+      }
+  };
+ 
+  const handleChange = (e) => {
+    e.preventDefault();
+    const { name } = e.target;
+      setFormData({
+        [name]: e.target.value,
+      });
+  };
 
   return (
     <div>
@@ -88,6 +140,7 @@ const Profile = () => {
               title={`Routines`}
               routines= {user.routines}
           />
+          <Button colorScheme='blue' onClick={onOpen}>Create Routine</Button>
           
           {/* { <MealPlan 
             title= {'Suggested Meals'}
@@ -96,6 +149,32 @@ const Profile = () => {
         </GridItem>
         
        </Grid>
+
+       <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Create a Routine</ModalHeader>
+          <ModalCloseButton />
+          <div className="questionnaire">
+          <form onSubmit={handleSubmit} className="profile-form">
+        <div className="form-group">
+          <label htmlFor="name">Pick a Name</label>
+          <br></br>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button type="submit" className="submit-btn">Create Routine</button>
+        </form>
+        </div>
+          
+        </ModalContent>
+      </Modal>
 
     </div>
   );
